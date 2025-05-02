@@ -1,0 +1,267 @@
+Html js running 
+<body>
+    <div id="root"></div>
+    heloo
+    <script>
+        const heading = document.createElement("h1");
+        heading.innerHTML = "HEllo World"
+
+        const root = document.getElementById("root")
+        root.appendChild(heading);
+    </script>
+</body>
+
+createElement,innerHTML,getElementById,appendChild ith ellam browsern ariyam but  react browsern ariyilla
+
+what is cdn?
+
+    cd id the link weere the react is hosted we are puting link in our program getting raeact
+
+       <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>  <!--  this core react -->
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>  <!--  this is dom operations kind of bridge react and browsers  -->
+
+
+        A Content Delivery Network (CDN) is a geographically distributed network of servers that caches static content,
+        such as JavaScript files, stylesheets, and images, and delivers it to users based on their location. 
+        In React, a CDN can be used to serve the React library itself, as well as other external libraries and assets.
+        This can improve the performance of React applications by reducing latency and bandwidth usage. 
+
+        To use a CDN in React, you can include the CDN links for React and ReactDOM in your HTML file:
+
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    
+ what is crossorigin?
+
+        ---
+
+        ### 🔍 What is `crossorigin`?
+
+        `crossorigin` is an **HTML attribute** that tells the browser how to **handle cross-origin requests** for things like:
+
+        * Images (`<img>`)
+        * Scripts (`<script>`)
+        * Stylesheets (`<link>`)
+        * Videos (`<video>`)
+
+        A **cross-origin request** happens when your website (e.g., `yourwebsite.com`) loads something from **another domain** (like `example.com`).
+
+        ---
+
+        ### ⚙️ Why is it important?
+
+        Browsers follow **CORS** (Cross-Origin Resource Sharing) rules for **security**. The `crossorigin` attribute helps the browser decide:
+
+        * Should it send **credentials** (like cookies)?
+        * Should it allow loading the resource if the other site allows it?
+
+        ---
+
+        ### 🔧 Values of `crossorigin`
+
+        | Value             | What it does                                                 |
+        | ----------------- | ------------------------------------------------------------ |
+        | `anonymous`       | Sends the request **without cookies** or authentication.     |
+        | `use-credentials` | Sends the request **with cookies** or HTTP credentials.      |
+        | *(no attribute)*  | Acts like `anonymous`, but may block cross-origin resources. |
+
+        ---
+
+        ### 📦 Example: Image with `crossorigin`
+
+        ```html
+        <img src="https://example.com/photo.jpg" crossorigin="anonymous">
+        ```
+
+        This loads the image without sending any user credentials to `example.com`.
+
+        ---
+
+        ### ✅ When to use it?
+
+        Use `crossorigin` when:
+
+        * You're loading resources from another domain.
+        * You want them to work properly with CORS.
+        * You need to avoid CORS errors in the console.
+
+        ---
+
+        Would you like to see a React example that loads a resource with `crossorigin`?
+
+part3
+
+        <script>
+                        const heading = React.createElement("h1",{id:"heading"},,"Hello World react inside");
+            //  createElement 3 araments aan 1- what tag name of tag 2-object is atributes kodukkan in our class namuk ethra atributes veneylum kodukkam,3- what you inside puting h1 tag enthano namal kodukkunnath ath eg oru tagntey ullil kodukkunnath ini ith kananamenkil rootil aakanam nammal rootinod parayanam ithil ethra childum add aaakm
+            //   react eppoyum root venam where react do all root dom manipulation  createElement verunnath react ninn aan root create aakunnath domil ninn aan 
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+
+            root.render(heading)   
+        </script>
+
+part4
+
+        creatinh app.js all adding top datas
+        creating index.js
+
+
+part 5 
+
+    nested type stucture verumbo enghana cheyyuka
+
+        /**
+        * 
+        * 
+        * <div id="parent">
+        *      <div id="child">
+        *          <h1>i' am h1 tag<h1>
+        *      </div>
+        * </div>
+        * 
+        */
+        //ith poley enghaneya undakuka
+
+        const parent = React.createElement(
+            "div",
+            {id:"parent"},
+            React.createElement(
+                "div",
+                {id:"child"},
+                React.createElement("h1",{},"i am h1 tag")
+            )
+        );
+
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+
+        root.render(parent)  
+
+        ReactElement(Object)=> HTML(Browser Understands) ->
+        athava nammal eyuthumbol ellam object aan rendertimil ath htmlileeyk convert aavukayaan ithan working behind in react
+
+
+    
+Ini siblings veruvaneyl eg look 2ennam orumich h1 and h2 sibili enth cheyyum
+
+        //inghaney siblings aanankil arrayil kodukuka
+
+
+
+        /**
+        * 
+        * 
+        * <div id="parent">
+        *      <div id="child">
+        *          <h1>i' am h1 tag<h1>
+        *          <h2>i' am h1 tag<h2>
+        *      </div>
+        * </div>
+        * 
+        */
+        //ith poley enghaneya undakuka
+
+        const parent = React.createElement(
+            "div",
+            {id:"parent"},
+            React.createElement(
+                "div",
+                {id:"child"},
+                [ React.createElement("h1",{},"i am h1 tag"),React.createElement("h2",{},"i am h2 tag")]
+            )
+        );
+
+        //inghaney siblings aanankil arrayil kodukuka
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+
+        root.render(parent)  
+
+
+
+
+
+
+    Ini inghaney veruvaneyl eg 2 child
+
+    //inghaney  aanankil arrayil kodukuka
+    
+
+
+        /**
+        * 
+        * 
+        * <div id="parent">
+        *      <div id="child1">
+        *          <h1>i' am h1 tag<h1>
+        *          <h2>i' am h1 tag<h2>
+        *      </div>
+        *      <div id="child2">
+        *          <h1>i' am h1 tag<h1>
+        *          <h2>i' am h1 tag<h2>
+        *      </div>
+        * </div>
+        * 
+        */
+        //ith poley enghaneya undakuka
+
+        const parent = React.createElement(
+            "div",
+            {id:"parent"},
+            [
+            React.createElement("div",{id:"child1"},[ 
+                React.createElement("h1",{},"i am h1 tag"),
+                React.createElement("h2",{},"i am h2 tag")
+            ]),
+            React.createElement("div",{id:"child2"},[ 
+                React.createElement("h1",{},"i am h1 tag"),
+                React.createElement("h2",{},"i am h2 tag")
+            ])
+        ]);
+
+        //inghaney siblings aanankil arrayil kodukuka
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+
+        root.render(parent)  
+
+
+this is core and working but ithinum easy aan jsx
+ithin aan jsx ellam easy aakum next episode study aakam 
+
+
+
+
+
+part 6
+
+
+    <div id="root">
+    hi adhil is here
+    </div>
+
+root.render(parent)  
+
+nammal htmil hi adhi is here koduthu js il root.render(parent) parent koduth enth sambavikum adhi is here ennathiney root render relace cheyyum parentil ullath show cheyyum athava prent adhil is here appent chheyum
+not appent replace cheyyum
+
+
+
+
+    <h1>helow top</h1> 
+    <div id="root"></div>
+<h1>helow bottom</h1> 
+
+inghaney koduthalo top bottom display aavum rootum
+
+this mean react is only working inside div name id root this is we calling react is a library also 
+
+what is library and framework
+
+we know react working small portion of page like footer header and page  react only work place what ever u make root make as 
+this is we call library it can work independly in small potion of app as well it is not full fludge frame work
+
+frame work which comes with all logs of things 
+
+react is minimal js library
