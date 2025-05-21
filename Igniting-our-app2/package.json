@@ -1,0 +1,31 @@
+{
+  "name": "igniting-our-app2",
+  "version": "1.0.0",
+  "description": "This is our React first",
+  "scripts": {
+    "test": "jest",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adhitmkm/React-Basic-Projects.git"
+  },
+  "keywords": [
+    "react",
+    "react",
+    "cource"
+  ],
+  "author": "adhil t",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adhitmkm/React-Basic-Projects/issues"
+  },
+  "homepage": "https://github.com/Adhitmkm/React-Basic-Projects#readme",
+  "devDependencies": {
+    "parcel": "^2.14.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}

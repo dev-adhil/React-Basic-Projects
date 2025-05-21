@@ -1,0 +1,285 @@
+ 
+ npx parcel index.html inghaney call akunnathin pakaram index.html package.json scrippt ullil koduthal mathi
+
+        "scripts": {
+        "start":"parcel index.html", -- inghaney kodukanam
+        "test": "jest",
+        "build": "parcel build index.html"
+        },
+ 
+        npm start   
+
+npm start - this is for run
+
+ npm run build - this is for production
+
+   "scripts": {
+    "start":"parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+
+ npm run start pakaram short aaki npm namukk thannitund npm start type aakiyal mathi
+
+part -2 
+
+what is Dom Element
+        Dom elements are dom showing html elements
+
+what is React Element?
+        const heading = React.createElement("h1",{id:"heading"},"i am h1 tag");
+
+what is jsx?
+        jsx is like html syntax
+        jsx - HTML - like or XML- like syntax
+                JSX => React.createElement => Object => HTMLElement(render)
+                const jsxHeading = <h1 id="heading">This is jsx file</h1> 
+        jsx is not HTML is js
+        jsx is js syntsx which is easier to create react elements and we can wrire jsx without react i can build huge project with jsx also but jsx make easy for developers so its jsx
+        react and jsx are diffrent
+
+        js not understand jsx javscript understand only ES6 mean ECMASCRIPT
+
+        here also parsel doing the job hihihihi
+        jsx (transpiled before it reaches the js engine) - PARCEL - Babel
+        Babel job is conver or tranpile js to react code
+
+        If u give Atrributes to jsx you have to use CamelCase
+        If u are writing multiple lines code then wrap codes in round brackets() bcz babel understand where to start where to end the line code
+        (<h1 id="heading1">
+        This is jsx file line 1
+        </h1>)
+
+        JSX =>Babel transpiles it to React.createElement => Object => HTMLElement(render)
+
+        const heading =  ithil ulla heading aan react element
+        (<h1 id="heading1">
+        This is jsx file line 1
+        </h1>)
+
+
+what is react compoent? 
+        everything is component in react
+        if we create  a page there a button is a component header is a component footer is a component a card is a component title is a component input box is a component searchbar is a component everythingis component
+
+There two types of componenet 
+        1 - Class based components - OLD way writing code
+        2 - Functional componenets - NEW way writing code
+
+        
+React compoent
+what is react component?
+        2 types compoents 
+        1 - Class based compoent - OLD - noway days not using
+        2 - Functional compoent - NEW - this way using now a days
+
+
+what is react Functional compoent?
+        its just a normal javascript function which is return some jsx elements
+
+        React Functional compoent is a function that reaturn some piece of jsx code element
+        A function get return jsx code is a Functional compoent
+        jsx is react element
+
+        eg:
+            const HeadingComponent = ()=>{
+                return <h1> Hello React Functional compoent<h1>
+            }
+
+            this code let short bcz single line code
+
+            const HeadingComponent = ()=> <h1> Hello React Functional compoent<h1>;
+
+
+// React Element        
+        const heading = (
+                <h1 className="head" tabIndex="5">
+                 Hello React Functional compoent
+                <h1>
+        );
+
+
+whats diffrent between element and compoent
+
+this is 😂 element
+          const heading = (
+                <h1 className="head" tabIndex="5">
+                 Hello React Functional compoent
+                <h1>
+        );
+
+this is 😂 compoent
+          const Heading = ()=> (
+                <h1 className="head" tabIndex="5">
+                 Hello React Functional compoent
+                <h1>
+        );
+
+        just a arow function added then componenet😂
+
+imp❗ supoose i want to render my heading component in to my root 
+
+        root.render(<HeadingComponent/>);
+this is how you wrapped this is how you will render a Functional compoent in to a page
+this is the syntax babel understand
+this is how render a component
+<HeadingComponent/>  is there is a compoent babel understand that 
+that's why u write it like this
+
+
+lets do more
+
+        if there is two compoent
+                suppose if i want title compoent render inside the heading component or inside the container how lets do it's verry easy 
+
+                const Title = (
+    <h1 className="head" tabIndex="5">
+    Hello React Functional compoent
+   </h1>
+)(
+
+// React Functional compoent
+const HeadingComponent = ()=> (
+    <div id="container">
+        <Title/> ------------------------------------------here title insided
+        <h1>Hello React Functional compoent</h1>;
+    </div>
+);
+    
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(<HeadingComponent/>);
+
+                if title inside write all code come replaced here  here hapening babel reading it and jwing all the code 
+when we the browser root containg inside  let see there browser html
+
+what is component composission this top write same thats the answer too
+
+
+now we are using arrow may use normal function ya sure lets arrow function too in Functional component now days mostly use arrow function its clean
+function key word is important when there is this keyword or something 
+
+now lets move next topic
+
+this is how component inside componenet what if u have to put element inside a compoent but before that even before that let me tell important superpower of jsx
+verpowerof superpower of jsx that you know any where see this jsx start this paranthsis over here
+
+                                                                                                // React Functional compoent
+                                                                                                        const HeadingComponent = ()=> (-------------------- this to
+                                                                                                        {} ------ here u can write any javascript inside
+                                                                                                        <div id="container">
+                                                                                                                <Title/>
+                                                                                                                <h1>Hello React Functional compoent</h1>;
+                                                                                                        </div>
+                                                                                                        );------------------------------------------------- here
+
+                                        over here curlybrase write jsx inside the curly braces you can run any piece of javascript expression you can write any javascript code inside this curly paranthsis any javascript code my dear friends
+thats why  jsx is mix of html and javascript its beautiful
+the super power is if we write curlybrases you can write any javascript inside any javascript expression inside it 
+
+                                                                                                                   const number = 1000;
+                                                                                                                  
+                                                                                                                   const HeadingComponent = ()=> (
+                                                                                                                        <div id="container">
+                                                                                                                                {number}
+                                                                                                                                <h2>{number}</h2>
+                                                                                                                                <h2>{100 + 200}</h2>
+                                                                                                                                <h2>{console.log("asdfghjd")}</h2>
+                                                                                                                                <Title/>
+                                                                                                                                <h1>Hello React Functional compoent</h1>;
+                                                                                                                        </div>
+                                                                                                                        );
+
+                                                                                                                        here we put a number inside component function
+                                                                                                                        here they doing 1000 inside coming Functionalcomponent
+                                                                                                                        it will put v over here 
+                                                                                                                        our dom tree lets see that
+                                                                                                                        if we need h2 tag inside thats also work
+                                                                                                                        any code you can write it will come html
+
+You can inject basically inside any code javascript inside the curly paranthsis cool and stuff this such a super power           
+
+now come point how i can put element inside the component 
+                                                          
+                                                                        const title1 = (
+                                                                        <h1 className="head" tabIndex="5">
+                                                                        Hello React Functional compoent
+                                                                        </h1>
+                                                                        )
+
+                                                                        const number = 1000;
+
+                                                                        // React Functional compoent
+                                                                        const HeadingComponent = ()=> (
+                                                                        <div id="container">
+                                                                                {number}
+                                                                                {title1} ------------- title element come here every thing will come here
+                                                                                <Title/>
+                                                                                <h1>Hello React Functional compoent</h1>;
+                                                                        </div>
+                                                                        );
+
+                                                                        this all are doing babel all are converting to react code lets appreciate babel amazing compiler
+
+ok how we can react element inside a react element 
+        its also same way see react element at the end of the day normal varriable                                                                   
+
+        const elem = <span>React element </span> -------- react element
+
+        const title1 = (
+                <h1 className="head" tabIndex="5">
+                {elem} ----------------------------- now elem present here
+                Hello React Functional compoent
+                </h1>
+                )
+
+we can put react component also 
+
+                const elem = <span>React element </span> -------- react element
+
+
+                const title1 = (
+                <h1 className="head" tabIndex="5">
+                {elem} ----------------------------- now elem present here
+                Hello React Functional compoent
+                <HeadingComponent/> ------------------- now compoent here
+                </h1>
+                )
+
+
+                // React Functional compoent
+                const HeadingComponent = ()=> (
+                <div id="container">
+                        {title1} ------------- title element come here every thing will come here
+                        <Title/>
+                           <h1>Hello React Functional compoent</h1>;
+                        </div>
+                        );
+
+heading componet adding time show an error
+
+ReferenceError : cannot access 'HeadingComponent' before initialization
+
+why this error showing 
+
+bcz its all javascript can you use a const varriable before we initialising it noooooo❗
+you need to maintain its not react javascript not allowing to do that 
+we cant write bottom also it will inifine lop work error 
+
+lets do this render theer element call 
+
+
+
+another topic
+
+            // React Functional compoent
+                const HeadingComponent = ()=> (
+                <div id="container">
+                        {title1} ------------- title element come here every thing will come here
+                        <Title/>
+                        <Title/>
+                        <Title/> ------------------lets write this more times
+                           <h1>Hello React Functional compoent</h1>;
+                        </div>
+                        );
+

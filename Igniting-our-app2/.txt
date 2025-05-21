@@ -1,0 +1,70 @@
+npm init
+    package.json will create
+
+npx means exicuting the packages eg:npx parcel index.html now here parcel excuting
+
+two types of dependency in react
+        1-dev dependance 2- normal dependancy
+
+        dev dependency is development when we development a app then we use dev dependancy
+        normal dependancy using production also
+
+        parcel is bundler 
+
+        so here we pacerl we use dev dependancy
+
+        npm install -D parcel
+
+what is caret and tilde in package.json
+
+        In package.json, the tilde (~) and caret (^) symbols are used to specify the version range for dependencies,
+        controlling how updates are handled when you run npm install or yarn install.
+        Tilde allows only the patch version upgrades avoiding the minor updates while caret allows updates to patch as well as minor versions.
+
+        caret (^) ith ittal authomatically versions update aavum eg:"parcel": "^2.14.4"
+
+what is package-lock.json and package.json
+
+        package.json its a configuration for our npm  
+        it keeps track of what version of the package it install to our system
+        package-lock.json keeps the trackof exact version that beign installed 
+
+        package-lock.json kind of locks the version keeps the record of it every exact version of that package or dependancy of that installed  
+
+
+what is node modules 
+
+        node modules contains all the  code that we fetch from npm 
+        when we did npm install parcel what happends was it will went to the production it took some times what they doing fetchng all the code of parcel and putting in to the inside node modules
+        node modules kind of data base contains the actual data
+        we know package.json its a configuration for our npm  the node modules such like a data base it contains the actual data of that dependencies of those packages of that project  
+
+what is transitive dependencies
+
+    every packages have its own package json and dependencies dev depencies and normal depencies you can see node modules inside oru packaginum athintey thaay verey depencies undavum so node modules huge 
+    node modules are collection of depencies 
+
+
+
+    @parcel/transformer-js: Browser scripts cannot have imports or exports.
+
+    ee error veran karanam namley htm    <script src="App.js"></script> ithil module add akanam  <script type="module" src="App.js"></script>
+
+#Parcel 
+- Dev Build
+- Local Server
+- HMR = Hot Module Replacement
+- File Watching Algoritham - Written in C++
+- Caching - Faster Builds 
+- Image Optimization - Normaly image loading is big task parcel will optimise
+- Minification
+- Bundling
+- Compressing -  eg:removing white sapces
+- Consistent Hashing
+- Code Spliting
+- Diffrential Bundling - support older browser
+- Diaganostic
+- Error Handling
+- HTTPS
+- Tree Shaking - remove unused codes
+- Different dev and production bundles
