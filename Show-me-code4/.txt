@@ -1,0 +1,532 @@
+npx parcel index.html
+
+This is here we write code here
+
+Let going food ordering app
+
+we need well plan
+ 
+we will pln we can easy for build
+
+1 - we need a plan about how to create this app take a book paper draw the design
+
+2 - we need good plant about this and we discuss what component we have figerout that
+        first we need divide 3 components
+                1 - header
+                2 - body
+                3 - footer
+        so we need little more 
+
+        what we need header component 
+                1 - Logo component
+                2 - nav item or menu items componenet
+
+
+        what we need body component 
+                1 - search bar
+                2 - Restaurent container
+                        here inside
+                        1 - resturent card container
+                
+        what we need body component 
+                1 - copyright
+                2 - liks
+                3 - address
+                4 - contacts
+
+now we done plan 1
+
+we need card seperted name like alif restaurent and kfc mcdonald how can we do thats we can do thats using props
+
+now we need build app
+
+        first we need top level thats fully contained thats app componenet 
+        we know whats componenet its a function it retuen a piece of jsx so it returning 
+
+        then we need need create header , body , footer 
+        so we creating header componenet 
+
+        ok now going create body 
+        here resturent box and inside resturent card componenet lets call
+
+        so now we need create resturent functional componenet cards
+
+        this Restaurent card inside we needs 
+                - image
+                - name of resturent
+                - star rating 
+                - cuisine
+                - delevery time
+                - 
+
+
+     
+
+imp❗❗❗❗❗❗
+
+first we need learn props
+
+prop short form of properties so this is the properties so properties is something which you can pass to the componenet
+
+suppose i want to dynamically pass to the component how we can do that?
+we can that using prop this is what prop 
+
+we know componenet is just a javascript function similarly -
+props just a normal argument the a  function📍
+props are just a normal argument to a function 
+
+Let's check how to pass a prop
+
+
+
+one mints
+
+const RestaurentCard = ()=>{
+    return(
+        <div className="res-card">
+            <img className="res-logo" alt="res-logo" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/8/8/e00cf41e-8c8f-44d1-9d61-a19d46f7c9bd_938417.jpg"  />
+            <h3>Alif Restaurent</h3>
+            <h5>Kerala, South Indian,Kozhikode</h5>
+            <h4>4.5 stars</h4>
+            <h4>150 minutes</h4>
+        </div>
+    )
+}
+
+const Body = ()=>{
+    return(
+        <div className="body">
+            <div className="search">
+                search
+            </div>
+            <div className="res-container">
+                {/* Restaurent cards */}
+                <RestaurentCard/>
+                <RestaurentCard/>
+            </div>
+        </div>
+    )
+}
+
+looks name name alif resturet hardcoded now supose i want to do dynamic pass the alif resurent here <RestaurentCard resName="Alif rseturent"/> we can pass like this
+
+                    <div className="res-container">
+                {/* Restaurent cards */}
+                <RestaurentCard  resName="Alif rseturent" cuisine="Kerala, South Indian,Kozhikode"/>
+                <RestaurentCard resName="KFC"  cuisine="Burger,fastfood"/>                --------------------- this like passing dynamically this is passing props
+            </div>                                                                                            this passing is pops property passing 
+                                                                                                        
+   Here react doing all these props it will wrap inside an object and it will pass here as props 
+   
+   how to pass :
+const RestaurentCard = (props)=>{
+    console.log(props)
+    return(
+        <div className="res-card">
+            <img className="res-logo" alt="res-logo" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/8/8/e00cf41e-8c8f-44d1-9d61-a19d46f7c9bd_938417.jpg"  />
+            <h3>{props.resName}</h3>
+            <h5>{props.cuisine}</h5>
+            <h4>{props.rating}</h4>
+            <h4>{props.time}</h4>
+        </div>
+    )
+}
+
+
+we passed props console look we can see props is a object 
+now we need use javascript object use here how we can use that
+
+
+what i am trying to saying that 
+
+when you have dynamically pass a data componenet passing a prop this is the major learnu=ing today session this important 📍📍📍📍📍📍❗❗❗
+
+lets discuss more
+
+you can just pass any number of props as wish you too
+React will wrap all over object and pass in over here 
+
+lets me tell one more cool thing 
+
+ basically react doing it is just making an object for all of the props passing it to the this props
+what some developers doing is some times they writed insted of over here destructure it on the falir some cool developer write like this📍📍📍❗❗
+
+const RestaurentCard = ({resName, cuisine, rating, time})=>{
+    console.log(props)
+    return(
+        <div className="res-card">
+            <img className="res-logo" alt="res-logo" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/8/8/e00cf41e-8c8f-44d1-9d61-a19d46f7c9bd_938417.jpg"  />
+            <h3>{resName}</h3>
+            <h5>{cuisine}</h5>
+            <h4>{rating}</h4>
+            <h4>{time}</h4>
+        </div>
+    )
+}
+
+lets create like this ways tooo destructure way cool way 
+
+this is structure way this way is not react this is javascript way this is plain javascript
+
+if we open swingy inspect network click Fetc/XHR we can see lot of datas name side one choose and click open new tab lets see lot of dats 
+why this using this way very core concept using in industry 
+
+this concept known as Configdriven ui📍📍❗
+this is useful frontend system engineer  interviews 
+
+here swiggy done is Configdriven ui 
+let me explain what is Configdriven ui?❗
+are website driven by data this is know as  Configdriven ui are websites driven by config;
+
+suppose another place have another curosal diffrent place diffrent currosal diffrent offers  in my backend api 
+
+basically Configdriven ui is controlling the uihow the ui looks like using data a config and the config come from the config come from backend
+
+so the Configdriven ui means the ui basically is driven by config ui is config driven thus is latest practice every company following what is the confi the api datas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+"info": {
+"id": "783524",
+"name": "KFC",
+"cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/12/9/390c3201-733d-457c-b591-b6f70ae38302_783524.JPG",
+"locality": "Kanayannoor",
+"areaName": "Ernakulam",
+"costForTwo": "₹400 for two",
+"cuisines": [
+"Burgers",
+"Fast Food",
+"Rolls & Wraps"
+],
+"avgRating": 4.5,
+"parentId": "116758",
+"avgRatingString": "4.5",
+"totalRatingsString": "3.5K+",
+"sla": {
+"deliveryTime": 24,
+"lastMileTravel": 2.6,
+"serviceability": "SERVICEABLE",
+"slaString": "20-25 mins",
+"lastMileTravelString": "2.6 km",
+"iconType": "ICON_TYPE_EMPTY"
+},
+"availability": {
+"nextCloseTime": "2025-05-23 23:00:00",
+"opened": true
+},
+"badges": {
+"imageBadges": [
+{
+"imageId": "Ratnesh_Badges/Rx_Awards_2025/Bolt.png",
+"description": "Delivery!"
+}
+]
+},
+"isOpen": true,
+"type": "F",
+"badgesV2": {
+"entityBadges": {
+"imageBased": {
+"badgeObject": [
+{
+"attributes": {
+"description": "Delivery!",
+"imageId": "Ratnesh_Badges/Rx_Awards_2025/Bolt.png"
+}
+}
+]
+},
+"textBased": {},
+"textExtendedBadges": {}
+}
+},
+"aggregatedDiscountInfoV3": {
+"header": "ITEMS",
+"subHeader": "AT ₹53"
+},
+"differentiatedUi": {
+"displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+"differentiatedUiMediaDetails": {
+"lottie": {},
+"video": {}
+}
+},
+"reviewsSummary": {},
+"displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+"restaurantOfferPresentationInfo": {},
+"externalRatings": {},
+"ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+},
+"analytics": {
+"context": "seo-data-bc0b3ba6-1a73-4901-80c7-bed089dea282"
+},
+"cta": {
+"link": "https://www.swiggy.com/city/kochi/kfc-kanayannoor-ernakulam-rest783524",
+"type": "WEBLINK"
+}
+},\
+
+
+
+
+
+
+now we going this live data in our code
+
+const resObj = {inside datas will add}
+
+we will pass data as a prop like this <RestaurentCard resName={resObj}/>  ---- here we calling top datas
+
+
+const RestaurentCard = (props) => {
+    const {resData} = props
+    console.log(resData)
+  return (
+    <div className="res-card">
+      <img
+        className="res-logo"
+        alt="res-logo"
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/8/8/e00cf41e-8c8f-44d1-9d61-a19d46f7c9bd_938417.jpg"
+      />
+      <h3>{resData.info.name}</h3>
+      <h5>{resData.info.cuisines}</h5>
+      <h4>{resData.info.avgRating}</h4>
+      <h4>{resData.info.deliveryTime}</h4>
+    </div>
+  );
+};
+
+
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search">search</div>
+      <div className="res-container">
+        <RestaurentCard resData={resObj} />
+      </div>
+    </div>
+  );
+};
+
+
+
+
+objecttintey ullil ullathiney inghaney vilikam . vech <h3>{resData.info.name}</h3>
+cuisine arra aan so nammuk ellam orumich aan veruney so namuk comma idan  <h5>{resData.info.cuisines.join(",")}</h5> inghaney ittal coma verum oro array kayiyumboyum
+<h3>${resData.info.costForTwo / 100}For Two</h3>
+
+in image all ids are put in cludinery
+
+className = {"ab"+"cd"} ithin aan concatination {}ith idan marakanda ennit join aakuka
+so nammal
+
+      <img
+        className="res-logo"
+        alt="res-logo"
+        src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+resData.info.cloudinaryImageId}
+      />
+
+      this cloudinaryImageId diffrent from diffrent restaurent this first claudinery url all are fixed  changing only cloudinaryImageId so url gived there
+
+      so now this is dynamic
+
+
+In the real word the cards comeslike an array of object there will not be like this we now gived type 
+                                                                                                const resObj = {}  an object type not this way in real world
+This will basically the real world the data will some like array of object 
+ like this 
+ const resObj = [{
+
+ },{
+
+ },{
+
+ },{
+
+ }] like this way the data will list of objects each object represent a resturent list of object 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+restaurants": [
+{},
+{},
+{},
+{},
+{},
+{},
+{},
+{},
+{},
+]
+
+now we sended datas in a  array format we can see that console
+
+now we need take each based on array index <RestaurentCard resData={resList[0]} /> now we can see 
+
+if we do {resList[0]} we can see chane arrays we can see amazing stuff now dynamic
+
+so we need make diffrent resturent card diffrent resturent
+
+<RestaurentCard resData={resList[1]} />
+<RestaurentCard resData={resList[2]} />
+<RestaurentCard resData={resList[5]} />
+
+now we can see diffrent datas this is the beuity writing reusable component 
+when we build production redy app you have to write resuable componenet what we did just becuse we create reusable component resturent card 
+we were passing dynamic props inside that becuse we made reusable card important to make reusable cards
+
+first we neeed good practice look
+
+      <div className="res-card">
+      <img
+        className="res-logo"
+        alt="res-logo"
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          resData.info.cloudinaryImageId
+        }
+      />
+
+      <h3>{resData.info.name}</h3>
+      <h5>{resData.info.cuisines.join(", ")}</h5>
+      <h4>{resData.info.avgRating}</h4>
+      <h4>{resData.info.deliveryTime}</h4>
+
+      look resdata. ..... dot dot so this not good look
+      so we bestway destructure this
+
+      good way writing is this we will destructure this
+
+      const {cloudinaryImageId,
+             name,
+             cuisines,
+             avgRating,
+             deliveryTime
+            } = resData?.info
+    we got now this over here Ths is destructure
+
+
+    <div className="res-card">
+      <img
+        className="res-logo"
+        alt="res-logo"
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId
+        }
+      />
+
+      <h3>{name}</h3>
+      <h5>{cuisines.join(", ")}</h5>
+      <h4>{avgRating}</h4>
+      <h4>{deliveryTime}</h4>
+
+      so we can remove all these resData.info
+
+can we optimize little more this look much better than what it was old is ugly
+
+now this cool 
+now we need refactor our code lot 
+    this look its also ugly
+        <RestaurentCard resData={resList[5]} />
+        <RestaurentCard resData={resList[2]} />
+        <RestaurentCard resData={resList[1]} />
+        <RestaurentCard resData={resList[3]} />
+
+now we need fix this thing this is not good way
+
+if resturen 20 or 30 or 5o writing this way is bore so we loop over here create an card each array how we loop over this array create this card dynamically
+how we loop over this restaurent list
+
+so now we will use javascript map function📍📍❗❗ 
+so lets write javascript how we will do javascript first of all i have write javascript using curly braces {} i will write array method map over here now you can ask me 
+can we use for loop ya sure but its not good way the good practide is find all across react code functional programing use map funtion and reduce❗❗
+
+so we can use map function
+how we can use map function 
+
+        {
+            resList.map((retaurent ) => <RestaurentCard  resData={retaurent}/>)
+        }
+
+this how take a moment and see this
+this is a warning dont ignore we are good developers
+now show a error :
+
+Error: Each child in a list should have a unique "key" prop.❗❗
+
+what this mean unique "key" property:
+unique "key" property means that  each of that list item should be uniquly represented so each of this item should have a key over here
+whwn ever you looping on to anything list you have to give key over here
+Then "key" is a reserved word men to be like this key  and you need pass unique id over here
+what is uniqe id for each resturent we have to pass in resturent id or something we can see inside array object a id we pas that id here
+
+like this 
+        {
+            resList.map((retaurent ) => (<RestaurentCard key={retaurent.info.id} resData={retaurent}/>))
+        }
+
+navas way index giving way 
+
+                {
+            resList.map((retaurent ) => <RestaurentCard  resData={retaurent}/>)
+        }
+
+So alway make a habit when ever doing .map() when ever you looping anything you have to always key over here 📍📍📍❗❗❗
+
+why this importent key?
+
+you know when we loop anything supoose html it have lot of children supoot root element 
+eg:
+a card container it have lot of children container the childrens are restu card 
+so what happens the reat optimizes it render cycle 
+when the component at same level this same level componend need uniqe ids why need unique represe bcz
+supose enw restaurent came in and it came in first place what will happen then dom happen the react happen then new resturen on first place isnt it
+
+if not giving id a new resturent came in what will do the react will do the react will all restaurent bcz rect not know which resturent  card is new 
+raect not identify the new restaurent card  the react will render all
+
+if we give id it wil not render all resturent it will render one restaurent only 
+this is huge optimization over here
+
+when ever you do map or any for loop index like 1 2 3 4 like the index will second property 
+        {
+            resList.map((retaurent ) => <RestaurentCard  resData={retaurent}/>)
+        }
+the react saying never use this index as a key 
+if there is not id then you can use but not recomemted

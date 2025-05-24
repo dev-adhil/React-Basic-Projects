@@ -1,0 +1,36 @@
+
+Today we will firstof all clean our app we created lot of mess last time
+
+we created App.js and there lot of components header components resturent card components and body component every thing in to single file and our app.js like almost 2000 lines 
+
+the best practice is seperate foles in seperate components today we will restructure our code we will wrote ever whole code app in app.js we will have multiple files
+
+we restructure our code we will not write whole in app.js we create seeperate files so we will break code multiple files 
+
+first of lets learn folder structure
+
+first of all we write  root level project we writed everything started like scratch in hello react project 
+
+lets now restructure our project liitle now 
+generally there very good itention in industry 
+
+All the main code react project we generally keep it src folder
+if you are  a developer there will definitly src file 
+so we create src folder put app.js file inside of src folder 
+
+all the componentinside my src file
+
+lets clean our src file right ❗
+
+importent every component keep seperate file for every component its good thing 
+
+if our project 1000 of component we doing all app.js single file its bad so we do seperate files in components 
+we need a structure pur way 
+its not manditory create sperperate no its not manditory but also its our choice what folder structure we do have
+some ppls catogorise based on features may we can all the file related to restro its ne file  all the files related to search its search folder like this way
+now here our  code 
+
+create component folder 
+App.js there is fll of component so what we do seperate it inside component folder
+
+if you need learn folder stucture search ggl write react folder structure there is blog in react
