@@ -1,0 +1,278 @@
+what is microservice Architucture?
+
+In the micro sevice Architucture we have diffrent services diffrent job 
+we have service like backend service 
+we have ui services 
+we haeve authentication services 
+we have service conecting to database 
+we have service for sms sending 
+we have service for email sending 
+
+there have diffrent services 
+
+this all micro services all are known as microservices
+all this service compine from a app
+
+all this microservices depending on users 
+this is know seperation of concerns and single resposability of responses
+and this is known as seperation of concerns and single responsabilities concerns
+every each and every responsibilties have on job no body inter fair on it 
+all the backend deloper frontend developer all are single project same repository 
+in micro service it will work their independed work on indipentent part
+
+this is what microservice Architucture
+
+how this service interact each other
+that this service all interact each other to make whole applications the ui is talk to backend  
+all the services talk to each other
+
+
+and you know we can use diffrent languages ui create js backed java db for pyhon 
+
+no a question
+how we can deploy all services ?
+
+to supoose if we have all the services are deployed 
+
+
+now lets learn 
+how connect micro services in react how to talk difrent microservices out side of the world how react application backend to call
+this is what to learn today eppisodes
+
+now we going learn now here we use copied dats and  stored array all datas now we going to do calling api in swiggy 
+
+❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗
+
+now lets learn two ways fetch datas in api 
+there are two approches 
+what are the two approches
+
+1 - when our app load when to make api call
+supoose our app load as soon as app load one thing what can do is we just make a api call to fetch the data ans when we get data renser to the ui 
+what we will do first as soon as our page we can make an api call wait for data came and the we render the ui
+supoose the calltake 500mstime waht will happen the page will load our page will wait for 500ms and after 500ms it will render the ui so waht will happen is
+you must have to seen open the webpage you sudenly dont see anything  and sudenly as soon as api response it quickly shows sudenly shows tahts is approch one
+
+2 - As soon as page load what wil happen is we wil just render the ui we  will quickly render it now we will do after quickly add now we will call api call
+as soon as get the result back from api now we will rerender the new data we render api from data application 
+
+as soon as the page load made an api callwe wait for data come as soon as data come it will render it 
+
+another approch is as soon as the page load it will quickly render waht ever we render waht ever we have we just rnder the skelton as soo as the 
+skeliton as soon as skeliton renders   now we will call an api call as soon as the api and as soon as api call we will just render the data on the web page
+
+
+in react 2nd approch we will always using 
+why we using 2nd this is beter approch this is give better ui bcz in the initial approch 500ms we pages slike kind of we dont do any after 500ms after suddenly we will see thats a poor ui 
+
+
+now we learned 2nd approch so lets do 
+
+i gona teach you importent topic useEffect()❗❗❗❗❗❗
+
+useEffect hook its a normal react hook just like useState
+
+i want ask a question
+whats hook ?
+in hook simple term in react whats hook in react i told you last time hook is nothing over complecated stuff no more hook is nothing just js normal function
+a normal javascript function which is react give to us its own specific use case this functions just like use state use like state varriable
+useEffect has on specific purpose function and lets see whats the purpose of useEffect
+
+useEffect also import like named function 
+
+how can use useEffect let me first tell you this syntax of useEffect 
+
+    useEffect a function lets call like a function and
+
+        useEffect()
+
+    useEffect will take two arguments
+        1 - argument is arrow function - callback functional
+        2 - argument is dependencies array
+
+        useEffect(()=>{},[])
+
+        lets do console.log in use useEffect
+
+        useEffect(()=>{
+            console.log("use effect called")
+        },[])
+
+        my question is useEffect() callbackback function called
+
+        the answer is the callback function will be after your component renders 
+
+        when the body component render it will load it will render the component as well the render component finish it will call the callback function 
+        which is passed to you 
+
+        when the body component render it will quickly call callback function and useEffect inside printed on screen ot happen inside
+
+        this is how useEffect work 
+
+        if u want after render component you have write useEffect()
+        this is the purpose of useEffect❗❗❗❗📍📍📍
+
+        useEffect(()=>{
+            console.log("use effect rendered")
+            },[])
+
+            console.log("body render ")
+        which one first its body after render then call useEffect
+
+        so we come point 
+
+        load page then render api call 
+
+        now render the page now fetch the data  were we fetch data  we will fetch data inside useEffect()
+        useEffect(()=>{
+            fetchData()
+            },[])
+
+
+        now i will write fetch data logic 
+        so how we will fetch data in javascript exact same here too there is nothing difrent how we do it 
+
+        const fetchData = ()=>{
+            const data = fetch()
+        }
+
+        fetch is super power given by browsers to js engine have 
+
+        this fetch will fetch data from the api what api we want call we want call swiggy api
+
+        can i use swiggy api lets try 
+
+        lets check work or not
+
+        what will fetch return fetch will rwturn a promise how we will resolve promise we can use traditional way .then resolving the promise .then
+        .then and catch handling the errors and all 📍❗❗
+
+        insted what i will do is i will follow new approch async await eathen .then catch all then that or you can use async await
+
+        i will advice to use async await standerd practice in industry its much good syntax better syntax right so i am writing async await ❗❗❗
+
+        make the function async and data will come to await
+
+        const fetchData = async () =>{
+        const data =await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=9.9890092&lng=76.284491&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null")
+        }
+
+        this will resolve the promise and now once we have dataa 
+
+        we have to convert data to json
+        to readable form to json
+
+        how we will do again await to resole and i will convert this data in to json() ❗❗❗❗
+
+        const json = await data.json();
+
+        so now we got data json
+        lets check call this api from our app
+        see wheather this app console or not we can see a load of error
+
+        can we call swiggy api from our app its a huge blocker 
+
+        lets see error:
+                        Access to fetch at 'https://www.swiggy.com/dapi/restaurants/list/v5?lat=9.9890092&lng=76.284491&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null' 
+                        from origin 'http://localhost:1234' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+        whats this error mean 
+
+        whats CORS policy ?❗❗❗
+        basically calling swiggy.com local host has been blocked due to cors policy 
+        whats cors policy basically who is blocking us answer our browsers block us to call api from one orgin to diffrent orgin
+        our browser not allowing to call swiggy api from local host from one origin to another origin 
+        if there is origin missmatch the browser block the api call thats cors policy and 
+        go and watch mmy yt channel cors video
+
+        for now how we can bypass this cors there is a way get red the cors 
+        so now what we do  just go cors core extention and find browser extention tahts allo you to by pass cors
+        this extention help bypasss cors error
+
+        now we got 
+        now we add this api data populate our page we have talk to external world this is core part i made an api get inside our app
+
+        now when we got data now we want to  render our page with this new data how do render page with new data i dont want hardcoded case 
+        i want new data inside our app 
+
+        first of all see how render all the card
+
+        you remember we did map listOfResturent,map and this listOfResturent contaon res list resList on moc data
+
+        now change and call data live api 
+          setListOfResturent(json.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+
+        useEffect(()=>{
+  fetchData()
+},[])
+
+const fetchData = async () =>{
+  const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.51800&lng=88.38320&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+  );
+  const json = await data.json()
+
+  console.log(json)
+  setListOfResturent(json.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+}
+
+no we got live data
+so now we remove moc data
+let me dlt file also 
+
+now let me tell important thing 
+  setListOfResturent(json.data.cards.[4].card.card.gridElements.infoWithStyle.restaurants)
+
+  lets do this in optional chaining 
+    setListOfResturent(json.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+this good way handling data❗❗❗❗❗❗
+
+lets come
+
+if we page render just small sec blank page body rendered and the page was rendered verry fast
+
+so now how we can improve experince more
+meanwhile some time take while load how we improve the experince
+
+what we do as soon as load page time show spin loader i can show spinning loader 
+how will show spinning loader let me just tell you how so what will do is unless we have data 
+what we will do i want show a spinning loaer over here right so what we do i will write a condition write if if my listOfResturent empty 
+supoose we dont have any data what should i do instead of this rendering this all i will render what a loading screen isnt it 
+so let me write the logic where we will write logic get this down 
+
+if(listOfResturent.lenght == 0 ) {
+    return <h1>Loading.....<>
+}
+
+see this loading is showing 
+
+this spinning practice is good way 
+noo the good way in industry i will teach you 
+
+today in the industry in the ui world you know what happends concept known as Shimmer UI or conditional rendering 📍📍❗❗❗❗❗
+
+what is Shimmer UI?
+A shimmer ui resembles the pages actual ui, so user will under stand 
+so quickly the web or mobile app will load even before the content has show up
+
+its kind of like we load fake page until we get actual data from api the sound complex its not instead loading showing 
+
+so lets create shemmer ui shimmer component
+
+create  a new file shimmer.js create a component
+
+this is also known as conditional rendering 
+
+if u have condition and rendering its called conditional rendering❗❗❗
+if(listOfResturent.lenght == 0 ) { ---------- here a condition
+    return <h1>Loading.....<>
+}
+
+now we writing if condition inside reture so two two return we can do single return inside body
+
+we can do this way too return listOfResturent.length == 0 ? <Shimmer/> : (..............)
+
+here we use ternery operation to handle this condition 
+
+this type code see dont worry just think this is a turnery option this  is render based on condition it render 
+this condition full fill sahmmer will render its not full fill then then bottom code render 
+this was conditional rendering 

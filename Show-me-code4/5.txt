@@ -34,3 +34,161 @@ create component folder
 App.js there is fll of component so what we do seperate it inside component folder
 
 if you need learn folder stucture search ggl write react folder structure there is blog in react
+
+here our project
+first create a file header.js
+when ever you create a component try to name exactly like the name of the component 
+here we creating Header.js and 
+every time the first letter capital❗
+in the component file one more file Body.js we know it will Body component 
+lets move our code now
+
+also also industrial thing is
+
+some ppls also name their file .jsx 
+what shouls we follow 
+i personally like .js
+if u jsx then use jsx file it doesnot a matter dont over think
+
+come project
+
+now we can put header component in to header.js file
+what we doing header component is using inside of App.js file 
+now react throw an error not find file  ReffrenceEror: Header is not defined 
+what we do is we will to import  the header component from file to our main file where we using it 
+we import header componet over here the App.js file
+❗ before i need to import but i need export it 
+
+let me tell you how to export it 
+we use normal keyword export and we write default and the name of the component
+
+There are Two ways we can export other way latter 
+now we use this way export default Header;
+now exported so now we can import that file 
+first export then import its a advice first give then take
+
+so now we can import
+import Haeder from "./components/Header";
+dont forgot look after import file there is .js is there or not if not then add .js
+import Haeder from "./components/Header.js";
+now ok
+
+similiarly this same thing we doing body component
+
+now we creating a file resturent card in component file and doing similier thing
+where we importing RestaurentCard we are not using RestaurentCard where we using import there 
+i am using RestaurentCard in Body component file
+
+now we running our code showing a error❗
+ReffrenceError: resList is not defined 
+
+so where we using resList in body component file
+where is coming from thats that component file not know
+
+we can see resList is there App.js file
+
+one thing we can move this file to Body.js file but
+This is not a good way❗❗❗❗❗❗❗
+
+when ever you have any hard code data resList is hard coded data 
+i will teach you good practice
+
+never ever keep a hard coded data in your component folder one more thing we hard coded  ❗❗❗❗
+one more thing we hard coded there whats that img url there the 
+                <img
+        className="res-logo"
+        alt="res-logo"
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          cloudinaryImageId
+        }
+      />
+
+the url also a hard coded thing this cdn link when ever any hard code code component dont keept there component file 
+and one more place we use a logo also 
+never ever keep hard coded thing in component files 
+
+so where should we use ❗❗❗❗
+the common practice is to keep it seperate file that known as constant.js some ppls config.js some ppls utils.js like that
+so common use is 
+create folder utils utility file
+the logo we can use any where in the app
+
+so inside constants.js we create a file config 
+this all not manitory but this all good practice
+
+let we learn good practice industry 
+util inside create a file constants.js why we not give first letter capital becuse it was not a component
+
+do now move all that in the constants.js file
+
+ its a good habit all the name capital letters with sneakers 
+ like const CDN_URL = "", const LOGO_URL="" 
+
+ now there constants.js file there CDN_URL and LOGO_URL what we do this
+
+
+ we resList change to util inside create a file mockData.js 
+ util folder inside two files why we call util its utility we can use evry where 
+
+
+ now we will use this things
+
+ so firstof all  lrt me tell you mock data where we have use this inside the body
+
+ if u run project lets see error 
+ ReffrenceEror: resList is not defined
+
+ so now lets import resList from mockData.js file 
+ how we import this before the import its export it and we can import body 
+
+ now i want to tell one thing ❗❗
+
+ one way exporting data is 
+ export default resList; like this this is known as default export
+
+ 2 ways export 
+    1 - default export
+    2 - named export
+
+the second way export is use generally we have to export multiple things
+
+in the constant.js there is 2 thing need export
+
+in 1 file have only one default export
+so we cant export two export i single file 
+
+what u mean by default export if some one my constant have default has a default export of some thing that mean by defaultthe const file export something
+by default my header file exports header file similiarly a one file export one thing 
+supoose we have multipple things how do you do thats
+
+thats named export then we use something thats named export
+
+how to do that its very you can write const name front like export const CDN_URL, export const LOGO_URL this way
+
+this is how export multiple things in same file you will always use named export❗❗
+
+so once we have use named export how to import?❗
+when we import a slight diffrence in importing 
+
+so when ever you have your named export you have to write curlybraces {} and what ever you want to import this is how you import named export from your file
+like this importing :
+                        import { CDN_URL } from "../utils/constants"; 
+                        and the src or usig place also  a curly braces 
+                                src={ 
+                                    CDN_URL + cloudinaryImageId
+                                }
+this is how import named export file 
+
+Two types of Export/import
+
+📍Default Export/Import
+
+export default component or varriable;
+import component from "path";
+
+📍Named Export/Import
+
+export const component;
+importent {component} from "path
+

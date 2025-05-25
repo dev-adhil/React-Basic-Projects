@@ -1,0 +1,317 @@
+
+we are make our app dynamic
+
+now our task is clicking  a button show morethan 4 rating resturents
+
+supoose we click button top rated resturent list the resturent
+ how will we do this
+
+ first we need to know click handlers event handlers onclick event
+
+ what we do
+
+ we can do when we have button do something onclick i have to do onclick what  do is in this button i will pass an atribute 
+ i will pass an atribute that atribute known as onclick and then onclick take a call back function onclick = (()=>{}) this is the function call on onclick
+onclick you can write in button onclick  waht ever you will pass the function is a call back function it will be called after onclick 
+
+lets show: 
+        <button className="filter-btn" onClick={()=>{console.log("button clicked )}}>Top Rated Restaurant</button>
+
+
+now we going discuss importent thing  📍📍❗❗❗❗❗
+
+first think how this cards comming over here 
+this card are coming from resList there is the data in the resList the resList have some mocdata inside it
+
+so what i want to do just three resturent over here so what should i do just change ths resturent list and my web page will change
+
+what ever resturent list will change everything will change
+
+how are this cards will generated
+the cards will listed bcz of resList
+anything will change resturent list  are webpage will change
+
+thats is basics of dynamisam
+
+lets do
+
+firstof all not use resList lets not use mocdata 
+let me tech from the basics  bcz this is importent concept❗❗❗❗❗❗❗❗
+
+if we did not resturentlist lets create our own Restaurant list 
+
+const listOfResturent = []
+
+the listOfResturent is empty list 
+now let me go let me power my ui by listOfResturent what i did is clearly see i am not using any moc data 
+lets learn from basics its importent❗❗❗❗❗
+
+this life lesson❗❗❗❗❗❗❗❗
+
+const listOfResturent = []
+ thsi empty now i am trying loop this this empty list over  here 
+ supoose i have one resturent over here :
+                                        //Normal javascript varriable 
+                                        const listOfResturent = [  
+                                                                    {info: {
+                                                                    id: "783524",
+                                                                    name: "KFC",
+                                                                    cloudinaryImageId:
+                                                                        "RX_THUMBNAIL/IMAGES/VENDOR/2024/12/9/390c3201-733d-457c-b591-b6f70ae38302_783524.JPG",
+                                                                    costForTwo: "₹400 for two",
+                                                                    cuisines: ["Burgers", "Fast Food", "Rolls & Wraps"],
+                                                                    avgRating: 4.5,
+                                                                    parentId: "116758",
+                                                                        deliveryTime: 24,
+                                                                }}]
+                                        what we need render this card we need url
+
+if i give one resturent data so there show only show one resturent data if i adding anothe so show only 2 cards
+
+so what i do is onclick of the button i have to do something over here so that so i can only filter out top rated resturent
+basicall i have some how write a filter logic over here :
+            <button className="filter-btn" onClick={()=>{
+            //Filter logic here
+            
+            }}>
+            Top Rated Restaurant</button>
+
+    on click of here i need to filter out something what i need to filterout  i need to modify how getting ui is generated listof resturent
+    if my list of resturent 2 resturent my ui will list two resturent suppose listOfResturent modify 1 resturent to filter 1 resturent 
+    what will happen ui will automatically show right so what i have to do i have filter logic over here
+    and i have change myresturent just have 1 resturent so what i can do 
+
+            <button className="filter-btn" onClick={()=>{
+            //Filter logic here
+                listOfResturent = listOfResturent.filter((res)=>res.info.avgRating>4)
+                console.log(listOfResturent)
+            }}>
+                Top Rated Restaurant</button>
+      </div>
+
+    that filterout all resturent it will update my resturent 
+
+now ui is not updated how ui can updated
+
+basically ideally dont you think over here listOfResturent.map this listOfResturent if listOfResturent changes automatically :
+                                                                                                                                <div className="res-container">
+                                                                                                                                    {listOfResturent.map((retaurent, index) => (
+                                                                                                                                    <RestaurentCard key={index} resData={retaurent} />
+                                                                                                                                    ))}
+                                                                                                                                </div>
+
+                                                                                                                                this should have refress 
+
+                                                                                                                                if i am clicking that button my list of resturent earlier have 
+                                                                                                                                my list resturent earlier have 4 objects in console 
+                                                                                                                                if i click on butto now only 2
+                                                                                                                                so automatically my page have refresshed how cool wold be insted of writing logic
+                                                                                                                                this is super power react 📍📍❗❗❗❗❗
+                                                                                                                                react have supper power dom manipulation this is the exact problem react solved
+                                                                                                                                supoose if u have to keep your data the ui layer constintly each other thats were react come to the picture
+                                                                                                                                all langues trying to solve this if my data changes ui changes  so this is the thing all frame work trying to solve
+                                                                                                                                fast dom manipulation
+the listOfResturent is normal javascript let varriable but if you give listOfResturent super power of react it will super energetic react varriable
+and its a normal javascript now i want to create super powerful react varriable and we also called state varriable so basicall it is like state va\
+// state varriable - super powerful varriable how we give this state varriable to super powerful varriable 
+how do create super powerful varriable 
+let me show
+for that react use Hooks 📍📍❗❗❗❗❗ 
+for that react use which is known as use state this is introduction Hooks❗❗❗❗ 
+what is react hook?📍📍❗❗❗❗❗
+the react Hook is normal react javascript function. which is given to us its a prebuild the only thing is that function comes with super power
+that function some logic return behind the scn inside react that function is a  utilty function react to us all are there multiple al are known as react Hooks
+
+
+
+this are most important hook 99% wrking this
+
+how do you use it we will have import this utilities functions there are multiple react Hooks just understand its javascript normal Hook
+
+first you understand its a react hook firstof all make simple react is very simple its a normal javascript utility function there are two react hook 
+
+
+# React Hook
+(Normal react utilty function - )           -------where weget utility function when we get node modules
+- useState() - super powerful state varriable in react
+- useEffect() - 
+
+useState() how get this first import its named import
+import { useState } from "react" like this
+
+import React from "react" ---------- how this working
+how import is working somebody exported the react this react coming from node_modules that we able to import 
+same thing named import somebody have exported this state varriables so we can import
+
+when we talk hook its the utility function the first utility function learning its useState how do you use state 
+state varriable 
+when i say state varriable why would call state varriable bcz it maintain state of  component  i am creating local state varriable inside body
+lets call local state varriable the local state varriable scope inside the functional component ❗❗📍
+
+how do you create functional component 📍📍❗❗❗❗❗
+
+const[listOfResturent] = useState();
+
+when ever you call useState it will give you the state varriable 
+how do you recive state varriable like this inside an array const[listOfResturent] = useState(); this how create a state varriable
+
+its a super power varriable
+
+//Local State Varriable - Super powerful varriable
+const[listOfResturent] = useState();
+
+//Normal javascript varriable
+let listOfResturent; 
+
+supoose Normal javascript varriable we give initial time a array let listOfResturent = []
+simmilerly local state varriable we give const[listOfResturent] = useState([]); an array for default value 
+so what ever we pass inside array it become default value of varriable 
+we have listOfResturent so we have const[listOfResturent] this is a state varriable in react how do you created how do you pass default value 
+useState([]) over here 
+
+supoose we give default value null in Normal js varriable listOfResturent = null
+in local state varriable const[listOfResturent] = useState(null);
+
+supoose we give default value one resturent i can give data of resturent
+    const[listOfResturent] = useState([{
+        data:resturent
+        {
+            dfghjkl
+            gshjk
+        }
+    }]);
+
+
+how we can modify listOfResturent i cannot do something like this
+listOfResturent = [] this not valid i cannot modify how i can modify it by  a function   the function come by second parrameter of array
+this is known as setlistOfResturent  basicall name have waht ever you wish too 
+but the prefered convention in the industry if the name is listOfResturent put it setlistOfResturent if the name is res set it setres basically play set before it
+its not manditory its normaly convention in industry pls try this
+
+const[listOfResturent, setlistOfResturent] = useState([]); the setlistOfResturent is update list you have update the list 
+
+supoose if i click button i want to update listOfResturent i cannot do listOfResturent equal to  
+            <button className="filter-btn" onClick={()=>{
+            //Filter logic here
+                listOfResturent = listOfResturent.filter((res)=>res.info.avgRating>4)
+                console.log(listOfResturent)
+            }}>
+
+listOfResturent =  this not a proper way to update 
+how update my state varriable is i will call setlistOfResturent and pass in the new data which i want to push inside 
+what i want push inside first 
+call the setlistOfResturent() function and pass in the data push in to the new data i want push inside 
+
+so what i want to push inside it  firstofall let it make empty 
+firstof click on the button let pass what we will pass supose click on the button
+so what ever data we need to 
+supoose we want update this varriable i will use setlistOfResturent of now i will pass data which will new we push inside of listOfResturent 
+what i need push inside listOfResturent i need to basicall filter the listOfResturent
+
+        <button className="filter-btn" onClick={()=>{
+            //Filter logic here
+                filterdList = listOfResturent.filter((res)=>res.info.avgRating>4);
+                console.log(listOfResturent)
+                setListOfResturent(filterdList)
+            }}>
+
+basically i am updating listOfResturent using filteredlist
+
+lets explain well
+
+you can create an normal varriable like 
+const list = []
+how we can update this 
+list = ["abc" ] 
+
+list.push("dfghj)
+but in the super powerful varriable is when ever this varriable update first we created use sated gived default values supoose we need update value of resturent
+i will not modify directly  we will to sign  but i will use setListOfResturent method to updated  what ever need to update supoose need to update resturent empty
+how would i do that setListOfResturent([]) now emptythis will make resturent empty this is equal to list = []
+
+now how you can use this varriable use varriable normaly it behave like a normal varriable 
+if we give one data our component is rendered  it works just like normal varriable
+
+listOfResturent is normal varriable if i will update it my ui will not update
+
+if we have super powerful varriable keep the ui sic the varriable
+
+if i click filter button it automatically refresh button 
+
+this is known as render
+
+when ever a state varriable updtes rerenders the component
+when ever a state changes react will rerenders rerender the component
+
+whats rerender ?
+when i click filter button changing the state and react is rerender my component
+
+this body component as soon as list of component updates from any where the st when ever anywher setListOfResturent called react will remove this body and update it properly 
+this is the power of the react this is the power of state varriable
+
+when ever a state varriable updates react will rerender my component thats called super powerful state varriable local sate varriable📍📍📍📍❗❗
+this is sate varriable
+
+so now we have passs our mocdata resList how to pass this
+
+    const [listOfResturent, setListOfResturent] = useState(resList)
+ like this waay
+
+ react will super power dom operation and efficient 
+ the logic of updating ui is called rerendering 
+ this is super power of react
+
+ react uses Reconciliation Algoritham  is also known as react fiber ❗❗❗ 
+
+ Reconciliation how it does on the ui supoose we have dom dom is like a tree supoose this have res container 
+ this retaurent have 15 resturent cards over here so now now what will happend is there is 7 cards my ui filtering cards in 3 filtered cards 
+ now supoose my changes what rect changes what reap faster i will tell you 
+
+ when ever you have rect there is virtual dom 
+
+ i will tell whats virtual dom   
+
+ virtual dom is not an actual dom what is actual dom actual dom are tags <div>......<div>
+ virtual dom is representation of actual dom 
+ vrtual dom is basically object
+ virtual dom is actual virtual dom 
+
+ console.log(<body>) -------- this is virtual dom
+
+ virtual dom is normal js object virtual dom is not actual dom its representation 
+
+
+ what is Diff Algoritham ❗❗📍
+
+ diff Algoritham basically finds out difrence between two virtual dom
+ eg : the Restaurantcard have 7 cards  the diff algoritham will find out the diffrence between i click the button on the ui 
+ it basicall try to finds out diffrence between old virtual dom and new virtual dom what will be the diffrence of 4 notes  and what it will do insideit will do calculate the diffrence automatically update the dom
+ on every render cycle 
+
+ when over we change its reconcilation  
+ in React-16 new algoritham to update the dom after react-16 came out react fiber
+ the react fiber is new way of findig div and updating the dom
+
+ ultimatly virtual dom is an object  assume that diff alogitham will do  find out the diffrence between it a divone object old object and new object 
+ once find 2 object  then it will update the actual dom th at how react is faster
+
+ finding two object js is fast so finds out it will two objwct 
+
+ what ever this ui react will track all ui all the dom virtual dom\
+ whts virtual do its a kind of object representation
+
+ if we click filter button new object will form and reat will find diffrence between there is 15 resturent now there are 7 Restaurant when it findout diffrence i object
+ then it will  actually update dom
+
+ it doesnot find out any diffrence then not 1 
+
+
+
+
+
+
+
+
+
+
+
