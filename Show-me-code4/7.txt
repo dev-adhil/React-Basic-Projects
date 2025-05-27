@@ -1,0 +1,11 @@
+ROUTING
+
+how we create multiple routes 
+how we can nested route 
+how we can create diffrent pages
+and also learn diffrent types of hooks 
+we deep dive hooks
+we deep dive usEffect hook 
+wee deep dive useState hook
+
+lets start;

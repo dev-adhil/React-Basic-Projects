@@ -276,3 +276,356 @@ here we use ternery operation to handle this condition
 this type code see dont worry just think this is a turnery option this  is render based on condition it render 
 this condition full fill sahmmer will render its not full fill then then bottom code render 
 this was conditional rendering 
+
+
+now we going learn login logout button if we click login button then change logout button 
+
+lets create a button in header
+as soon as click login button i want to show it logout button how i do that
+
+          <button className="login">Login</button>
+i want this code dynamic this is jsx this is jsx button i want this login keyword to be dynamic it should change logout how can i do that in react 
+now to do this 
+
+we can create a local varriable and we can say btnName = Login 
+so initially this is string you alredy know if we have a string i want display string inside the jsx how would i used this
+how i would use this varriable in jsx how will use use that we put up the {} curly braces write btnName over here {btnName} now its login now isnt it
+and now see login we some how want to change in to logout so basically its simple logic right look simple what will do on click of the button i will write
+onclick on the button i will change btn name to logout it should worl isnt it 
+understand very well
+if click button it change name to logout and if i click once again back to login 
+so what i am doing is initially by default button login but a soon as as click we have click handler we have call back function we click function
+i want to change my button name so  what i do  onClick={()=>{btnName = "Logout"}} isnt it now this const varriable make let bcz doesnot modify const varriables
+now i have change this do you think this will work there is normal js varriable react react showing screem do you think this will work
+ if i click this will it change logout bcz will btn name is updted will update logout
+ 
+ lets check huh
+
+ nothing happened why 
+ if u think the buton function not work lets console lets check yes console work then why not  login to logout in console logou working 
+ but why the ui logout did not working there is minute concept verry importent❗❗❗❗❗
+
+ we have btn name its an normal javascript varriable const btnName = "Login" and we used like inside jsx {btnName} this login come over here
+ login in here button but as soon click on the buton i want be {btnName} want to update btn name got updated alredy so console loged right
+ updated to logout but the ui did not render but are component this did not have refresh there would be 
+ some way that refresh the header component that can take latest right it can take latest value of btnName isnt it they could be some refresh kind of thing 
+ so this is why javascript varriable doesnot work such cases if u  want to make your component dynamic
+ if you want something should change in your component we use local state varriables here is where use state state varriables comes in to picture
+ this is why we use state varriables ❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗
+ now when we create supoose we have created btn name a special react varriable that local state varriable lets create it
+ how would be use state 
+ where does come use state its come from named import from react how we create useState 
+ 
+ const [btnNameReact,setNameReact] = useState("Login")
+
+ this behave normal javascript varriable but its a special react varriable special local varriable why its special i will tell you while 
+ insted of btn name supoose i use btnNameReact   const [btnNameReact] = useState("Login")
+ let me save go back now thw login coming from btnNameReact  
+ now onClick on the buton i want to update this new state varriable can i write this 
+             const [btnNameReact,setNameReact] = useState("Login")
+           <button className="login" onClick={()=>{btnNameReact ("Logout")}}>{btnName}</button> btnNameReact btnNameReact ("Logout")
+no noo u cant directly modify  but you have use the second parrameter setstate 
+use state is giving us a varriable and also gives you a function which will update you ta\hats second argument put set from name anything 
+you cant directlu update setstae use for update :
+          <button className="login" onClick={()=>{setNameReact ("Logout")}}>{btnNameReact}</button>
+ok now what will happen
+
+so if we use let btnName = 
+
+if we use this in react wheather not know value updaedor not react not know anything 
+state this so now when this update when ever you updated how we will update we will update setstate the react will triger render once again 
+basically react will what do 
+when ever your state varriable cahnges setstate react will rerender header componentreact will kind of refresh header component all the updated values there
+when do onclick this will setbtnreact the btnnamereact will become logout and it will just refresh header component 
+lets see working 
+ya working how
+bcz as soon as clicked on button react updated the btnNameReact varriable and also refreshheaer component it triger reconcilation cycle 
+
+what u mean rendering a component ?
+it mean call the header function or call the header component once again it will triger once again
+
+const [btnNameReact,setNameReact] = useState("Login")
+the use state using const then how changing values how we can modifying varriables ask you friends 
+bcz the render afer setstae the rerender that time the state is new varriable created new variable hehehehehehehe❗❗❗
+
+now we putting toogle functionality ❗❗❗❗
+login to logout and logout to login 
+put a condition if my button name is alredy login right if my buton name == "login" then only change logout othervise change in to login once again
+
+
+Lets Build Search functionality ❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗
+
+in search bar if what we write it will display
+
+let create search bar top of the restaurants
+create input and search button 
+        <div className="search">
+          <input type="text" placeholder="Search Resturent" className="search-input" />
+          <button >Search</button>
+        </div>
+
+To get the from input box we nee to take this value of seach input box and i have to bind this in to a local state varriable
+to track the value of input box to get the value i have bind this value with the local state varriable
+
+i want to create one more state varriable and i will bind that varriable
+
+const [seachText, setSerchText] = useState("")
+
+now i want to bind serch text in to my input box 
+how we can bind 
+
+we use a proper jsx syntax 
+          <input type="text" placeholder="Search Resturent" className="search-input" value={searchText} />
+we added a value added state name there
+
+now what will happens is now search text is over here value={searchText}  and when i click this button
+i want my search text just console log search text 
+
+now showing error we cant type anything our input box not taking anything nothing over here 
+
+why so? ❗❗❗❗❗
+
+this is very importent concept❗❗❗❗❗
+
+why this is not working why input box not working 
+
+how to fix this 
+
+why let me tell you 
+
+we have given value we have bind this values in text over here and the searchText over here value={searchText} its bind to the inpu box
+that means what ever theire inside searchText varriable will be value of variable  inside input box 
+now 
+when i cahnge the value of inputbox changingit the value of input box till tide to the search text 
+so my seachText variable not get updation but i am trying modify input box it cant happen
+so becuse  this value is bind y=to the search text and the seach text is empty so this input box not change 
+unless we change searchText variable
+ so thats why fix this what we will do is ❗❗❗❗
+
+ write onChange handler here as soon as input changes this input tag changes what happen my onChange function should also change my searchText variable
+ this onChange function will update my function how we do update my search text update with the new value 
+ first of all how will i get new value 
+ i will get from the callback method this is a e normal callback method like normal click handler normal onChange handler e is a event 
+ what we will do is we will setSerchText variable here the value give  e.target.value setSerchText(e.target.value)  
+ now what will happed lets see 
+              <input type="text"   className="search-box" value={searchText}  onChange={e => setSearchText(e.target.value)}/>
+
+    in this input box its tide  value is tide to seachText when ever we type something when even changing in input box 
+    we want to update my search text 
+    this is how update our search text it will show the value over here
+
+if i do onChange now if i try to print this value search text value it will print the value console over there 
+
+let me repeat once more 
+if u writing time calling on change method 
+onChange method taking the target value and it just updating the state varriable and the the body component refreshing but the best part is 
+react is trigering the reconsilation it finding the diffrence between oldr dom and new virtual dom
+so the react is finding the diffrence between older virtual dom 
+
+the virtual dom is object representation jsx 
+what react is doing the react is rerendering the body component but it only updating input value inside the dom 
+dom manipulation is very expensive react is verry efficient in doing when ever i writing anything 
+something react exactly knows checking the diffrence every hiting the key press react is finding the diffrence the two virtual doms 
+and its updating only the input box react is presisly know only the inpu has changed from older version of virual dom to newer version of virtual doms
+once it find difrence now its updating that inside the dom only the input box thast how efficient react 
+
+each tme we input writing onChange working so body rendering
+
+
+now what we do serching getting dats ❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗
+
+just two line 
+
+lets work this 
+
+now we have onclick as soon as onclick now i want to write filter logic and i want to update my UI
+
+how update my ui tahts simple right 
+
+l will just update listOfResturent waht will happen as soon as i will update listOfResturent 
+as soon as my listOfResturent variable change what happen 
+//whenever state variable update, react triggers a reconcilation cycle(re-render the component)
+
+so when ever my list of component change my ui component automatically ge update 
+my only job is as a developer react developer is so each write two line so easy bu behind scn lot of happen
+
+so what now we have to do is 
+
+now we want list filter out
+
+what i will do is i will do a filter array do filter 
+watch map filter reduce filter in javascript
+
+ listOfResturent.filter(()=>{})
+
+ filter function then callback this callback function itrate all the listOfResturent
+
+ the the data in listOfResturent have
+ and what will happpends is i will filter out how will filterout the res
+
+    listOfResturent.filter((res)=>res.data.name)
+
+now we will give filteredResturent
+
+const filteredResturent =  listOfResturent.filter((res)=>res.data.name)
+
+now we got filteredResturent over here
+
+now what we do now we update UI using filteredResturent
+
+insted showing listOfResturent now i need filteredResturent
+
+what should i do should update listOfResturent from here
+
+lets update listOfResturent over here
+
+setListOfResturent()
+
+now listOfResturent updated with this filteredResturent
+
+setListOfResturent(filteredResturent);
+
+now what will happends is it will when i click on the button filteredResturent and it will update the variable and when it update the variable  
+it will triger reconcilation process the body component will render and it will  rerender the updated value so listOfResturent will cahnge
+
+now not working
+
+            const filteredResturent =  listOfResturent.filter(
+              (res) => res.data.name === searchText
+            );
+
+bcz only equal value we need included values 
+i would this name will includes the search text
+
+            const filteredResturent =  listOfResturent.filter(
+              (res) => res.data.name.includes(searchText)
+              // (res) => res.info.name.includes(searchText)
+            );
+
+now see working 
+
+the working 
+
+now lets see html working when u click on it 
+
+lets expalin
+
+when i click this it will find out filter out all all the Resturents which one includes 
+and just updating listOfResturent variable with data and what will happend is soon as listOfResturent will be updated when ever the state variable updated
+it will rerender the body component it will rerender my body component it time render the filtered data this time rerender the filtered data
+
+
+❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗
+
+
+if the user try to search for some small letters difrence so we will take care of this
+
+i wil convert both of them lower case what ever
+i have mathching before i am checking this is common problem 
+
+just write .tolowercase before you finding it and then even the serach text what ever random search 
+now check done
+
+ const filteredResturent =  listOfResturent.filter(
+              (res) => res.data.name.includes(searchText)
+               res.info.name.toLowerCase().includes(searchText.toLowerCase()) 
+               );
+
+
+
+now look fi\ull code of this 
+
+          <input type="text"   className="search-box" value={searchText}  onChange={e => setSearchText(e.target.value)}/>
+          <button 
+            onClick={()=>{
+              // Filter the restaurent card and update the UI 
+              //Search Text
+              console.log(searchText)
+
+            const filteredResturent =  listOfResturent.filter((res) =>
+               res.info.name.toLowerCase().includes(searchText.toLowerCase())
+            );
+
+              
+              setListOfResturent(filteredResturent);
+
+            }}>Search
+
+
+
+now also search have a buf if we write otherthing anything then not run bug 
+if type without any related data bug lagg every  thing is gone
+just broken our code what happen to this ❗❗❗❗❗
+
+how do you alredy know anwer 
+so whenever  we are dioing a filter one time supoose if i search cofee oevr here search  box we got restaurants cards what we have done is 
+we have updated our listOfResturent and now whenever we searching once again you searching this two restaurants not the whole restaurants cards 
+we have modified our of  listOfResturent this andwe have all the restaurantsof their which data from api we lost the data and we have updated new data
+now this listOfResturent filter only cofee serched data is this functionality good noo 
+actually we want seconnd time all time we need filter all the restaurants which they from api call so thats the bug 
+how we solve this
+
+so what we are doing is the mistake over here the bug is indroduce bcz we are just updating listOfResturent              
+                 setListOfResturent(filteredResturent); this line
+with filtered list  just modifying the original stff instead what we should is we want to modify this we keep another copy of filtered list 
+a simple solution this  we will keep all the  listOfResturent and what i do is 
+i wil create another state variable for filter only the filtered restaurants and setfilterdresturent and initially null
+and now when ever we do filter instead of updating listOfResturent i will just update setfilterdresturent 
+                      setFilteredResturent(filteredResturent);
+
+and now when i rendering i will render it from filteredResturent 
+basically i kept a copy all the restaurants and my filteredResturent 
+so now i will apply filter and when i will filter when ever while i will calculating i will filtering i would need listOfResturent
+the listOfResturent inderect when i modify list of restaurants never modifying listOfResturent
+i only modify when ever data get from api
+
+              <input type="text"   className="search-box" value={searchText}  onChange={e => setSearchText(e.target.value)}/>
+          <button 
+            onClick={()=>{
+              // Filter the restaurent card and update the UI 
+              //Search Text
+              console.log(searchText)
+
+            const filteredResturent =  listOfResturent.filter((res) =>
+               res.info.name.toLowerCase().includes(searchText.toLowerCase())
+            );
+
+              
+              setFilteredResturent(filteredResturent);
+
+            }}>Search
+
+          </button>
+
+
+
+      <div className="res-container">
+        {filteredResturent.map((retaurent, index) => (
+          <RestaurentCard key={index} resData={retaurent} />
+        ))}
+      </div>
+
+
+now we reaload our page not show anything why 
+
+bcz the problem is we have not updated filred restaurants filteredResturent is still empty 
+so initially i wil update 
+
+when we fetching data i am updating  a copy of listOfResturent as well as filteredResturent with what ever data i have got 
+the data i have got i am updating this both of the state variable this 
+  setFilteredResturent(json.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+
+so now see this when the body component load first time it makes an api call and it update the listOfResturent aa s well as the filteredResturent
+and now i will use this listOfResturent indirect when i have filter something it will ust use it will filter put and i will update my filteredResturent
+and to display to display it Ui using filteredResturent
+
+            const filteredResturent =  listOfResturent.filter((res) =>
+               res.info.name.toLowerCase().includes(searchText.toLowerCase())
+            );
+
+lets explain 
+
+when i click filterd filteredResturent updated and becuseand when ever a state variable cahnges it automatically refreshes so filred restaurants
+displaying the restaurantswith the filterd restaurant
+the filteredResturent is now geting displayed waht is the value inside filteredResturent data has coming from api so next time i will filter 
+it will filter from listOfResturent

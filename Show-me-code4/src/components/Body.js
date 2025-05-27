@@ -7,6 +7,11 @@ import Shimmer from "./Shimmer";
 const Body = () => {
 
     const [listOfResturent, setListOfResturent] = useState([])
+    const [filteredResturent, setFilteredResturent] = useState([])
+
+
+    const [searchText, setSearchText] = useState("")
+
 
 useEffect(()=>{
   fetchData()
@@ -19,17 +24,37 @@ const fetchData = async () =>{
 
   console.log(json)
   setListOfResturent(json.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+  setFilteredResturent(json.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 }
 
 // if(listOfResturent.length == 0) {
 //   return <Shimmer/>
-// } now this not need bottom ternery operation used using this function this both same 
+// } now this not need bottom ternery operation used using this function this both same there ternery operation used
 
 
 console.log("body render ")
   return listOfResturent.length == 0 ? <Shimmer/> : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input type="text"   className="search-box" value={searchText}  onChange={e => setSearchText(e.target.value)}/>
+          <button 
+            onClick={()=>{
+              // Filter the restaurent card and update the UI 
+              //Search Text
+              console.log(searchText)
+
+            const filteredResturent =  listOfResturent.filter((res) =>
+               res.info.name.toLowerCase().includes(searchText.toLowerCase())
+            );
+
+              
+              setFilteredResturent(filteredResturent);
+
+            }}>Search
+
+          </button>
+        </div>
         <button className="filter-btn" onClick={()=>{
             //Filter logic here
               const  filterdList = listOfResturent.filter((res)=>res.info.avgRating>4);
@@ -40,7 +65,7 @@ console.log("body render ")
                 Top Rated Restaurant</button>
       </div>
       <div className="res-container">
-        {listOfResturent.map((retaurent, index) => (
+        {filteredResturent.map((retaurent, index) => (
           <RestaurentCard key={index} resData={retaurent} />
         ))}
       </div>
