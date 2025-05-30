@@ -9,3 +9,559 @@ we deep dive usEffect hook
 wee deep dive useState hook
 
 lets start;
+
+Today we gonna create diffrent pages on url this we gonna learn diffrent pages on diffrent url
+so this is gona learn this
+
+if we gone /about gone about page 
+if we should /contact go contact page 
+
+we using important javascript library 
+
+
+first we gona deep dive useState usEffect hooks
+
+let me go code let me check how usEffect work 
+
+first i will explain about usEffect hook
+
+so firstofall how is usEffect hook 
+how is usEffect hook called  that you alredy know it comes from react library we importing it using it named import from the react library
+
+How use usEffect called 
+
+usEffect called using two arguments the first arguments is usEffect(()=>{}) the callback function second argument is dependency array this what i told you last time
+and lets also see when is usEffect called before that let me do console.log()
+
+this is verry important question ❗❗❗❗❗❗
+
+the usEffect basically is called after every render of that component 
+
+what its i usEffect used inside header component 
+
+usEffect will call every time my component rendre my usEffect will be called every time my header component called my usEffect will call this is the definition of usEffect
+but because we putting dependency array of here dependency array changes the behaviour of its render 
+
+let me tell usEffect
+
+if u dont put any dependency array its not manditory by the way 
+only callback function manditory inside the usEffect
+
+so when u call usEffect withou any dependency array it will render every time my component renders 
+
+usEffect have if no dependency array => usEffect will call every render
+
+usEffect have if the dependency array is empty = [] => usEffect is called initial render(just once)
+
+usEffect have if the dependency array is [btnNameRect] = called every time btnNameRect is updated 
+
+the basic nature of default behaviour of usEffect to  be called after each render but if it give dependency array then it's just called after once
+and what if put something inside dependency array then it will be only called when the the dependency changes it will be only changes dependency changes
+
+
+just check using console.log you can see that
+
+
+
+let me tell useState
+
+we have another hook useState 
+
+when ever using useState never use useState never create the state varriable out side of your component 
+
+just show you you can see console.log throwing  a error 
+err: 
+    hook.js:608 Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+overrideMethod @ hook.js:608Understand this error
+react.development.js:1221 Uncaught TypeError: Cannot read properties of null (reading 'useState')
+
+you can see this error
+
+Always call useState hook inside our body component 
+
+useState have specific purpose it is create to local state varriable inside your functional components 
+and try to call this hook on the top  
+because javascript is sychronous code  the code will run line by line 
+
+import ❗❗❗❗❗❗
+
+dont create a useState in inside of if else conditions 
+it doesnot have any sense and its inconsistency in your program 
+
+
+
+
+
+
+
+Now lets statr ROUTING ❗❗❗❗❗❗
+
+
+how we can create diffrent routes inside your react application 
+
+for this i looking npm javascript library that library known as react library dom 
+
+How we can install this library in to our code?
+
+npm i react-router-dom 
+
+Now how will use this 
+
+i will tell you the feature develop 
+lets create route lets create about us page if we write local host page it wil back home page 
+http://localhost:1234/about 
+
+if i write /about i need show about page 
+
+firstofall let me tell you 
+
+if i write /about i need show about page how i will do that 
+
+first 
+i will need configuration 
+when i will need routes i will wrire ROUTING configuration
+
+so we will create routing configuration
+for that i will import createBrowserRouter  from react router dom
+
+    import {createBrowserRouter} from "react-router-dom"
+
+we are going to use create createBrowserRouter  and the createBrowserRouter will create a routing configuration for us 
+i will show you how to create 
+
+  now we are going create route configuration inside our appRouter
+  basically we wil passing the router
+  
+what is the configuration ?
+
+configuration means some information that define what happen on specific Route   
+
+a information that tell the router what wil happen in specific like path specific i am calling about what should happen if i should could call the url or if i call route
+so we are passing over here so this create browser take list of path what is path pasth is nothing but object and object will contain to path
+
+    const  appRouter = createBrowserRouter([ ])
+
+if my path is contain "/", what will happen i will define over here if the path is about what should happen i wil difine it like this "/about", how will i define
+if my path is define "/" then load the element what element load my home page what is my home page my home page is appLayout load my <appLayout> component
+
+        const  appRouter = createBrowserRouter([
+        {
+            path:"/",
+            element: <AppLayout/>
+        },
+        ])
+
+what mean laoding appLayout mean load the page 
+but if my path is about then load the element and about component about page or about component we dont have about component it create one quickly 
+so what is page the page is nothing this is one page the composition of page 
+one big level component app level component several component 
+what is another page what is about us page component thats we say everything component in react about us page also a component
+so lets create about us page
+
+lets create a component aboutUs 
+
+now created a about component and exported and now we let me import in this into App.js page
+
+now what i will give this about configuration 
+tell the configuration if my path about then load my about component on the page 
+
+this is how we give configuration
+
+{
+    path:"/about",
+    element:<About/>
+  }
+
+  but this configuration wont work we have pass this configuration we have to provide this configuration to render to the page
+
+  first thing how did i create configuration i imported my createBrowserRouter from react-router-dom
+  and this createBrowserRouter take some configuration that configuration is a list remeber that thats array of object this is list list of object 
+  each and every object fins diffrent path should happen on the path basically this configuration telling 
+  {
+    path:"/",
+    element: <AppLayout/>
+  }
+                                                                                                           
+if the path is "/" if i am on the home page then load AppLayout
+if i am on "/about" go to my aboutUs component if i am on "/contact us"
+
+{
+    path:"/contactus",
+    element: <contactus/>
+  }
+
+  we will create new path also if my path is "/contact"
+  then i will contact contactus page
+
+  now when i create this types configuration provide the configuration where we need to provide i need to provide this to render it 
+  so how did i provide this so before that i will have one more import ❗❗❗❗❗❗ component that i can import that 
+  react dom gives the functionality between us component RouterProvider 
+  so we have something RouterProvider component not it this ❗❗❗❗❗❗
+
+  this RouterProvider actually provide this routing configuration to our app how where we laoding 
+  earlier what we doing  rendering the AppLayout directly 
+
+  earlier we just rendering AppLayout 
+  saying this code 
+        root.render(<AppLayout />);
+
+now insted of this we will provide it router configuration how i will basically do 
+
+    root.render(<RouterProvider />);
+
+this RouterProvider is a component and i will provide appRouter configuration
+so i will add router = {appRouter}
+
+    root.render(<RouterProvider router={appRouter} />);
+
+so here i imported RouterProvider this component is exported from my "react-router-dom"
+
+who writen this code this code wrire rect dom library 
+createBrowserRouter, RouterProvider this two feature giving us "react-router-dom" to our app
+
+so look this is working 
+
+
+if i create a contactUs page 
+we again create a functional component page
+❗❗❗❗❗❗
+some people you know wrire function all again once again 
+so now we going put a shortcut also 
+
+if u wrire rafce and hit enter❗❗❗❗❗❗ rfce
+
+automatically create a component
+
+but personally suggest not do this  
+
+wririting component is good way for byharting as a student not use more write never forgot interviews also help
+
+if i wrire "/contact" going contact page
+if i wrire "/about" going about page
+
+But my friends if i write Randomly what happen 
+see showing error its throeing unexpected Application error
+its not throwing an error of user its not random ugly error
+remeber when react fails how red color error show its not showing that 
+
+who is giving this information somebody giving us 
+    404 Not Found
+
+all this are handled react router dom
+ReactRouterDom created error her self another page for you
+so this is the error page raect as created
+Now when u get not found error lets create our own page 
+this is error page raect dom as given to us 
+now lets me create how react error show our own page 
+how we can handle Errors ❗❗❗❗❗❗
+lets create fancy error page
+lets create OOPS for us 
+
+for that i will tell you how to do that
+in path we have element i will also do something like this  
+    errorElement:<Error/>
+
+    {
+    path:"/",
+    element: <AppLayout/>,
+    errorElement:<Error/>
+     }
+if element as error load errorElement 
+so we can create Error component
+this is our error page
+
+and here one more Cool feature taht ReactRouterDom ive to us i terms of error ❗❗❗❗❗❗
+let me show it you
+
+React give to us a import hook 
+useRouteError which is given to us ReactRouterDom
+    import {useRouteError} from "react-router-dom"
+
+how do you know this is a hook 
+
+when ever you see starting function Use then its  a hook its convention in react industry❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗
+
+useRouteError this hook give more information about Error
+this is tell more detail better message display our page
+
+and show specific detail on our page thats why we use the useRouteError
+
+let me show how to use this
+
+const err = useRouteError();
+
+it will give more error in our pathwhich error thrown react will cathch and giving to us  as form of object 
+i will show wht error showing on the console 
+
+there we can see a objec we get
+
+we have this error now we can use this information just like statusText : "Not found"
+we can use Extra data to the user how we can use err
+we can show like this
+    <h3>{err.status}<h3/>
+this will show you     404  
+     <h3>{err.statusText}<h3/>
+this will show you     Not fount 
+ 
+     <h3>{err.status}:{err.statusText} <h3/>
+
+
+if u go to random url then show errors
+
+
+welcoem back
+
+now lets study how to create Children Route inside your app 
+when i said Children routes or may be before telling you children route it will just tell you what if keep in head tag and i just want my pages to changes belongs header 
+supoose if i am on about page about page load below the header  over here in the body header should always be there 
+basically what i show to you in the code that if i am on home page and this header and body fine 
+if i am on about page then what should happen <Header> should be there and insted of this <Body> is basically the resturent insted the body i should have my
+<About> page over here and if i am on Home page  i should <Body> over here basically body mean cards all showing page the resturentList
+
+const  appRouter = createBrowserRouter([
+  {
+    path:"/",
+    element: <AppLayout/>,
+    children:[
+
+    ],
+    errorElement:<Error/>
+  },{
+    path:"/about",
+    element:<About/>
+  },{
+    path:"/contact",
+    element:<Contact/>
+  }
+])
+
+basically when i am on "/about" and i am on "/body" if i am on contact then i should have contact 
+so how will do that 
+basically
+if i am on "<About/>" page
+
+let me show another thing 
+      <Haeder />
+      <About />
+
+now header is there botom about page
+
+what i do to do this type functionality i have to create children routes ❗❗❗❗❗❗
+
+so children routes of AppLayout the AppLayout "/" stay as it is this over here i will create my children route
+i will give some configuration to children this children again a list and children is list of path path of the children
+
+now about and contact i will copy see this configuration and i am putting inside list its children of my parent route 
+i will call "/" as root route on the root of route and i am creating children "/about" is a children of AppLayout
+
+
+const  appRouter = createBrowserRouter([
+  {
+    path:"/",
+    element: <AppLayout/>,
+    children:[
+      ,{
+    path:"/about",
+    element:<About/>
+  },{
+    path:"/contact",
+    element:<Contact/>
+  }
+    ],
+    errorElement:<Error/>
+  }
+])
+
+i am creating about is children of AppLayout and creating contact is children of AppLayout
+and take same configuration we had earlier 
+so this is children about and contact children of AppLayout
+
+Now i am render children over here
+so what i am trying to do is now i want to put some conditions over here in my AppLayout
+something like 
+
+      <Haeder />
+      {/* if path = / */}
+      <Body />
+      {/* if path = /about */}
+      <About/>
+      {/* if path = /contact */}
+      <Contact/>
+
+basically what i want to do is want to push my children here acording to the route
+
+i want to push this children 
+            {
+            path:"/about",
+            element:<About/>
+        },{
+            path:"/contact",
+            element:<Contact/>
+        },
+
+over here
+      <Haeder />
+      {/* if path = / */}
+      <Body />
+      {/* if path = /about */}
+      <About/>
+      {/* if path = /contact */}
+      <Contact/>
+
+this acording to the routes
+
+if my path is "/about" my element is go 
+
+    <div className="app">
+      <Haeder />
+    .......... ------------->>>>> here 
+    </div>
+
+if my path is "/contact" my element is go 
+
+    <div className="app">
+      <Haeder />
+    .......... ------------->>>>> here 
+    </div>
+and i want to get my contact over here this outlet
+
+if my path is "/" my element is go 
+
+    <div className="app">
+      <Haeder />
+    .......... ------------->>>>> here 
+    </div>
+and i want to get my body component over here this outlet
+
+{
+    path:"/",
+    element: <AppLayout/>,
+    children:[
+    {
+    path:"/",
+    element:<Body/>
+  },{
+    path:"/about",
+    element:<About/>
+  },{
+    path:"/contact",
+    element:<Contact/>
+  },
+    ],
+    errorElement:<Error/>
+  }
+
+  i want to load this children according to the path 
+  but where should i load this here in this outlet
+
+    <div className="app">
+      <Haeder />
+    .......... ------------->>>>> here  outlet
+    </div>
+
+here load outlet according to the path 
+
+Again react router dom come to rescue some thing like Outlet and this Outlet ❗❗❗❗❗❗
+this Outlet is a component 
+
+how do you use this outlet
+
+i will just create outlet over here <Outlet/>
+
+when ever then outlet over here AppLayout 
+so when ever they change the path so the <Outlet> will be filled with the children according the path on what page we are
+when ever i will be "/" body will be filled over here
+
+    <div className="app">
+      <Haeder />
+      <Outlet/>
+    </div>
+
+if i am on about page about page filled over <Outlet/>
+basically <Outlet/> a kind of a tunel all teh children go inside come over here
+lets look localhost lets see below the header lets see about page
+
+<Haeder/> in tag
+<Outlet/> will filled with component that as pass as children in to my parent this parent is AppLayout
+I have multiple parrents and multiple children according to the route it will render 
+this is how creating children route creating inside your app
+
+one question will you see the outlet in your html ?
+no my dear friends so below this <Haeder> About component basically the outlet replace the component according to the path
+
+the user doesnot kmow our code have some outlet but we can create outlet we can create children routes
+and we can also reuse the <Header>
+
+
+NOW WHAT WILL DO IS LINK IT OVER HERE  ❗❗❗❗❗❗
+
+if i click about page go to about page if i click contact page go to the contact page if i click home go to the home page
+
+first how we link 
+in the haeder let create link to those pages 
+How i create the link supoose "/about" go to about how could link
+its very easy create anchor tag and just link it 
+          <li> <a href="/about">About Us</a></li>
+now its take aboutUs page 
+
+But let me tell you import thing ❗❗❗❗❗❗
+import thing over here ❗❗❗❗❗❗❗❗❗❗❗
+
+when you are using react and you want to route some another page never use anchor tag ❗❗❗❗❗❗❗❗❗❗❗
+why?
+
+You should not use anchor tag
+
+why should not use anchor tag?
+because when i go to about page the whole page will refresh 
+if i click about page whole page refresh 
+
+i dont want to refresh my whole page  but still i will move route
+
+what is link link come from ReactRouterDom ❗❗❗❗❗❗
+
+Link super power given ReactRouterDom
+
+how to use this link component 
+the link exactly same like anchor tag 
+
+the only difrence the link and anchor tag 
+an tag have href but Link have to=""
+
+
+link have no reaload page this super power this super  power given react component link component
+reload the page refresh the component this is single page application
+
+
+if i use link not reaload the page 
+if anchor tag the page will reaload
+
+
+let me tell one more thing 
+
+there is two types of routing in react application web application
+1 - Client side routing
+2 - Server side routing 
+
+# Two types of routing in web apps 
+  - Client side routing
+  - Server side routing
+
+  if we have html page a network call get the data network aboutus html the ui refresh the whole page Server side routing
+
+  the serv side routing mean you make a network call and the page that are aboutUs.html coming from server its server side routing
+  now over here this is Client side routing we are not make any network call while we are moving toward the page because 
+  all the pages are alredy loaded our app web page 
+
+  if run the page alredy have loaded all pages if we go about us its just load the aboutUs page it jus load the component idf we go contact page 
+  load the contact page load over here 
+  the only call is when i call api 
+  i am not fetching any page that known as Client side routing
+
+  what is single page application ?
+  its a one page jus the component getting interchange its only happening 
+  why client side routing we are implementing   client side routing in my dear friends this is the amazing thing 

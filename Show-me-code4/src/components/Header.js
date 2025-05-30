@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
+import {Link} from "react-router-dom"
 
 export const Haeder = () => {
 
@@ -19,8 +20,10 @@ export const Haeder = () => {
       <div className="nav-item">
         <ul>
           <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
+          <li> <a href="/about">About Us</a></li>
+          <li>
+            <Link>Contact Us</Link>
+          </li>
           <li>Cart</li>
           <button className="login" onClick={()=>{btnNameReact == "Login"  
             ? setNameReact ("Logout") 
