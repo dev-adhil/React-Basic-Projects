@@ -565,3 +565,164 @@ there is two types of routing in react application web application
   what is single page application ?
   its a one page jus the component getting interchange its only happening 
   why client side routing we are implementing   client side routing in my dear friends this is the amazing thing 
+
+
+
+
+
+
+
+  Now we going to make diffrent pages diffrent resturent ❗❗❗❗❗❗❗❗❗❗❗
+
+  which mean if we a resturentcard it will show full details 
+  if we click megna food it take to megana food page over here we can see the dishes megna  food offering to us 
+
+  Lets create resturent menu page this showing us menu of resturent
+  lets create this and lets see how dynamic routing works 
+
+  welcome back lets study dynamic routing
+
+  so dynamic routing mean let me see the dynamic page
+
+  lets show  a example swiggy 
+  when i have swiggy.com
+
+  what its mean dynamic routing dynamic rowting its a example swiggy.com 
+  if open wiggy home page and if go to megna foods see the route its /resturent/resturent-name 
+  this is diffrent route from megna food 
+  if go back if click third-wave-cofee we have /resturent/thirdway of cofee 
+  we have dynamic route for every resturent we have this is the dynamic route we will have 
+
+  if i click hotel empire 
+  lets see network there called a api call and showing the menu page  and dynamic route
+  this is menu api which return menu of hotel empire 
+
+  i want to create dynamic route create a dynamic page and show the data of hotel empire and difrent diffrent page how do i build  that 
+  thats amazing lets build that 
+
+  i want to build diffrent resturent / resturent / some id that resturent name so i want to routing like this isnt it i want routing like this 
+  how i build this
+  lets create resturent menu component its resturent menu page 
+
+  we created contact page about page similierly 
+
+  and we export this
+  and we will reuse this this resturent menu component will same component we will have dynamic data load inside this 
+  if the kfc mcdonald all are reuse this it will diffrent have resturent diffrent have menu we will reuse this using same component
+  this is reusability 
+
+  now we have resturent menu component we will reuse this 
+  
+  we going app.js and we creating one more routing here   
+  {
+    path="/resturent/resId",
+    element:<Resturentmenu/>     
+  }
+    ------------- /resturent/here may be any part here may be difrent resturent how do i tell dynamic path giving this colon : and giving resId
+  this means that this part of url is dynamic :resId is dynamic resId id of resturent 
+  and now what will pas on this path supoose we will pass what will load what i want load my element i want load element
+  what element Resturentmenu 
+  import my Resturentmenu over heer
+  lets load see our resturent component loaded 
+  if i have resturent/123 123 is dynamic id 
+  according to the data my menu will change
+
+  when we have this Resturentmenu page lets dynamicly getting data from swiggy api 
+
+  when we have this page Resturentmenu page lets dynamicly get swiggy api 
+
+  when this page load make an api call how i can call api 
+
+  i will use import hook ❗❗❗❗❗❗❗❗❗❗❗
+
+  which was useState hook
+  now we imporing usEffect and using usEffect have two argument callback and dependency array
+  usEffect(()=>{
+    fetchMenu()
+  },[])
+
+  how we fetch the menu of resturent 
+  let me use async function 
+
+  const fetchMenu = async (req, res)=>{
+    const data = await fetch("",)
+  }
+
+  i will fetch data from api 
+  what api this from swiggy resturent api  let me copy paste 
+  i fetch data not i will convert data to json 
+  const json = await data.json()
+
+  i am just console data get or not checking 
+
+  usEffect have empty dependency array it will call one time after initial time 
+  verry important
+
+  lets see we have data coming in
+
+  lets use this data and show it over here
+
+  lets create useState
+
+  lets add shimmer
+
+      // if(resInfo === null) return <Shimmer/> 
+let add shimmer using ternery operation
+
+const ResturentMenu = ()=>{
+    const [resInfo, setResInfo] = useState(null)
+
+    useEffect(()=>{
+        fetchMenu()
+    },[])
+
+    const fetchMenu = async (req,res)=>{
+        const data = await fetch(
+            "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=9.9890092&lng=76.284491&restaurantId=53243&catalog_qa=undefined&query=Biryani&submitAction=ENTER"
+        )
+
+        const json = await data.json()
+        console.log(json)
+        setResInfo(json.data)
+    }
+
+        setResInfo(json.data)
+data stores
+
+now lets display name what we do 
+
+
+const ResturentMenu = ()=>{
+    const [resInfo, setResInfo] = useState(null)
+
+    useEffect(()=>{
+        fetchMenu()
+    },[])
+
+    const fetchMenu = async (req,res)=>{
+        const data = await fetch(
+            "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=9.9890092&lng=76.284491&restaurantId=53243&catalog_qa=undefined&query=Biryani&submitAction=ENTER"
+        )
+
+        const json = await data.json()
+        console.log(json)
+        setResInfo(json.data)
+    }
+
+    const {name, cuisines, costForTwoMessage } = resInfo?.cards?.[2]?.card?.card?.info
+
+    
+    
+
+                // <h1>{resInfo?.cards?.[2]?.card?.card?.info.name}</h1>
+
+
+    // if(resInfo === null) return <Shimmer/> 
+
+    return resInfo === null ? ( <Shimmer/> ) :(
+        <div>
+            <h1>{name}</h1>
+            <h3>{cuisines.join(",")}</h3>
+            <h3>{costForTwoMessage}</h3>
+            <h2>Menu</h2>
+            <ul>
