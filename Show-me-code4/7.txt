@@ -726,3 +726,181 @@ const ResturentMenu = ()=>{
             <h3>{costForTwoMessage}</h3>
             <h2>Menu</h2>
             <ul>
+
+      TypeError: Cannot destructure property 'name' of '(intermediate value)' as it is undefined
+this is error bcoz first time running time vallue is null so error
+
+which mea initialy resInfo is null we dont have any data in resInfo basically we moving shimmer and condition on the top
+
+we can solve this add shimmer in if condition then destructure
+
+now lets display cards
+
+const {itemcrds} = resInfo?.cards[4].groupedCard.cardGroupMap.REGULAR.cards[4].card.card                                             --------------- This is the reason graphSql using ❗❗❗❗❗❗❗❗❗❗❗    mainly graphSql using swiggy have large of data but we using small datas load only data which is required  main purpose this
+
+
+why swiggy apilike this bcz swiggy data they buid for card 
+
+const {itemcrds} = resInfo?.cards[4].groupedCard.cardGroupMap.REGULAR.cards[4].card.card;
+
+  console.log(itemCards,"carrrrrrrrrrrrrrrddddddd")
+
+yes now we getting data 
+
+now lets itrate our data in the menu ❗❗❗❗❗❗❗❗❗❗❗
+
+how do itrate ?
+
+lets itrate using .map()
+
+lot of peoples faces issues when they itrate
+
+how to write code easier way 
+
+supoose i want 
+            <h2>Menu</h2>
+      <ul>
+        <li>Biriyani</li>
+        <li>Burger</li>
+        <li>Diet cake</li>
+      </ul>
+
+supoose i want lemon rice in biriyani area i have my item cards what i do is 
+try to write it on one    
+          <li>{itemCards[0].card.info.name}</li>
+      just write like this
+      if we check working or Not
+    see we got lemonrice   over here
+
+lot student facing issue map function direction so thats why we doing easier way 
+  now i write crs 2
+        <li>{itemCards[].card.info.name}</li>
+
+  now we got name similierl if i have write all
+
+  i can do this 
+
+  now i will write map function ❗❗❗❗❗❗❗❗❗❗❗
+
+  ok what i itrating upon 
+    itrating upon itemCards {itemCards.map()}
+
+    if u want to learn .map() better way watch youtube video
+
+    here {itemCards.map()} here map take call back function and this call back function have resturent each item i want my item.card.info.name {itemCards.map(item => item.card.info.name)}
+    and this i want each item i want list 
+    {itemCards.map(item => <li>{item.card.info.name}<li>)}
+
+    this is the easier way 
+
+    one more thing remeber when using map always use key other wise react throw a warning
+
+    {itemCards.map(item => <li key="">{item.card.info.name}<li>)}
+
+see its working 
+u can create a card and list this
+
+lets print price too 
+
+        {itemCards.map((item)=><li key="1">{item.card.info.name} - {item.card.info.price} </li>)}
+
+  some place not displaying price 
+  there api there is api some place price and some place default price 
+  so lets write like this
+          {itemCards.map((item)=><li key="1">{item.card.info.name} - {item.card.info.price || item.card.info.defaultPrice} </li>)}
+
+          136 rs showing 13600 so we do like this / 100
+          {itemCards.map((item)=><li key="1">{item.card.info.name} - RS- {item.card.info.price/100 || item.card.info.defaultPrice/100} </li>)}
+
+how to add id key ❗❗❗❗❗❗❗❗❗❗❗
+        {itemCards.map((item)=><li key={item.card.info.id}>{item.card.info.name} -  {"RS"}  - {item.card.info.price/100} </li>)}
+
+
+now lets show diffrent routesdiffrent hotels diffrent menu page for each and every hotel now
+
+the api of wiggy magna food and kanor food api only diffrence id
+if we change id mob=ving the another resturent 
+
+we want our code working in routing timenow i am telling how to read this id 
+
+how we will the id 
+
+again react give a super power ReactRouterDom which is give what is the param
+
+the super power is hook which given to us ReactRouterDom the hook know as  useParams  its come from ReactRouterDom
+
+how to use this useParams
+
+i just extract my resId from useParams hook and 
+
+just show whats comes here 
+
+const params = useParams()
+console.log(params)
+
+now see 
+
+params is an object with this resId
+
+thats why what i doing is i can just destructure on the flay 
+just have resId directly 
+
+now this resId contain this id 229 and i want to pass id in my api url
+
+"https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=9.9890092&lng=76.284491&restaurantId=
+"+resId+"
+&catalog_qa=undefined&query=Biryani&submitAction=ENTER"
+
+
+this url restaurantId="+resId+" here we make changes 
+
+this api going store contants folder all api write there its good behaviour
+
+export const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=9.9890092&lng=76.284491&restaurantId="
+
+    const data = await fetch(
+      +resId+
+      "catalog_qa=undefined&query=Biryani&submitAction=ENTER"
+    );
+
+
+"catalog_qa=undefined&query=Biryani&submitAction=ENTER" 
+
+this is operational parameter lets avoid it
+
+lets just import MENU_API
+
+lets add
+    const data = await fetch(MENU_API+resId);
+
+now our code lke this 
+
+if we change id lets see changing resturents
+
+according the url changing the datas
+
+lets make more changes
+
+if we go home page click a card then its go the resturent how we will do that ❗❗❗❗❗❗❗❗❗❗❗
+
+how make this cards clickable using ange tag noooooooooooooo use link 
+
+why using link link not renderer
+
+now body page we impoting link from ReactRouterDom
+and we will link the resturentcard
+let me put link all of the resturentcard 
+          <Link><RestaurentCard key={retaurent.data.id} resData={retaurent} /></Link>
+and this LINK redirect to my url  the url should dynamic
+          <Link to={"/resturen"}><RestaurentCard key={retaurent.data.id} resData={retaurent} /></Link>
+
+to = "/resturent"
+where is the id the key is id 
+lets concatinate this id
+          <Link to={"/resturen"+retaurent.data.id}><RestaurentCard key={retaurent.data.id} resData={retaurent} /></Link>
+/restaurantId/id
+what ever id 8d come with there 
+bcz Link maping over the link 
+link want key over want to be here 
+key on the parent jsx that is map
+so key should over here 

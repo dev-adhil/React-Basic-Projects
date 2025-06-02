@@ -1,0 +1,17 @@
+import React from "react"
+
+class UserClass extends React.Component {
+    render() {
+        <div>asdf</div>
+    }
+}
+
+class base component is a class which extend react based component and it has render method which have return jsx
+The only major difrrence is here is render method some piece of jsx and this is the jsx which will to be renderd covert htm to web page 
+
+React component coming from react raect package 
+
+My question is how we should pass props inside this functional component
+
+in the class we have props recivening using constructor 
+and constructor have super(props)
