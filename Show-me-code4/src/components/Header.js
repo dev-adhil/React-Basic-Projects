@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import {Link} from "react-router-dom"
+import { User } from "./User";
 
 export const Haeder = () => {
 
@@ -22,7 +23,7 @@ export const Haeder = () => {
           <li>Home</li>
           <li> <a href="/about">About Us</a></li>
           <li>
-            <Link>Contact Us</Link>
+            <Link to="/contact">Contact Us</Link>
           </li>
           <li>Cart</li>
           <button className="login" onClick={()=>{btnNameReact == "Login"  

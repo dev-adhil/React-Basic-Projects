@@ -15,3 +15,246 @@ My question is how we should pass props inside this functional component
 
 in the class we have props recivening using constructor 
 and constructor have super(props)
+
+This code is class Component
+
+import React from "react";
+
+class UserClass extends React.Component {
+
+    constructor(props){
+        super(props);
+
+        console.log(props)
+    }
+
+    render(){
+        return(
+            <div className="user-card">
+                <h2>Name: {this.props.name}</h2>
+                <h3>Location: Kerala</h3>
+                <h4>Contact: @adirkm</h4>
+            </div>
+        )
+    }
+}
+
+export default UserClass;
+
+
+Why we write super props if we not write the show error we can avoid that 
+
+if we put value 
+
+we always use this keyword in class
+{this.props.name}
+
+so this can acess any were this class 
+
+when the class call the constructor will call
+
+when ever class new instace created the constructor will called and what happen this props exctracted over here like 
+and now you use props any where in your code suoer props like {this.props.name} this is how get props from parent component
+
+you can destructure it 
+
+{name} = this.props;
+                <h2>Name: {name}</h2>
+
+
+
+
+in functional Component props pass like 
+
+export const User = ({name})=>{
+    return(
+        <div className="user-card">
+            <h2>Name: {name}</h2>
+            <h3>Location: Kerala</h3>
+            <h4>Contact: @adirkm</h4>        
+        </div>
+    );
+};
+
+
+NOW WE LEARN ABOUT HOW TO CREATE STATE VARIABLES INSIDE CLASS Component
+
+FUNCTIONAL COMPONENT CREATING STATE 
+
+we use useState 
+
+import { useState } from "react";
+
+export const User = ({name})=>{
+
+    const [count1] = useState
+    const [count2] = useState
+    return(
+        <div className="user-card">
+            <h2>Count1: {count}</h2>
+            <h2>Count2: {count}</h2>
+            <h2>Name: {name}</h2>
+            <h3>Location: Kerala</h3>
+            <h4>Contact: @adirkm</h4>        
+        </div>
+    );
+};
+
+CLASS COMPONENT CREATING STATE
+
+import React from "react";
+
+class UserClass extends React.Component {
+
+    constructor(props){
+        super(props);
+
+        console.log(props)
+
+        this.state = {
+            count1 : 0
+            count2 : 0
+        };
+    }
+
+    render(){
+        return(
+            <div className="user-card">
+                <h2>Count: {this.state.count1}</h2>
+                <h2>Count: {this.state.count2}</h2>
+                <h2>Name: Adhil</h2>
+                <h3>Location: Kerala</h3>
+                <h4>Contact: @adirkm</h4>
+            </div>
+        )
+    }
+}
+
+export default UserClass;
+
+if u have best place in creating state VARIABLES it inside the constructor so you will create over here 
+
+
+HOW WE CAN UPDATE STATE VARIABLE
+
+
+CLASS COMPONENT CREATING STATE
+
+first we never change satte directly 
+Never update state variables directly never ever do this
+
+react give a component for update setState() you can use this any where inside the class 
+
+import React from "react";
+
+class UserClass extends React.Component {
+
+    constructor(props){
+        super(props);
+
+        console.log(props)
+
+        this.state = {
+            count : 0
+        };
+    }
+
+    render(){
+            const {name, location} = this.props
+            const {count} = this.state
+        return(
+            <div className="user-card">
+                <h2>Count: {count}</h2>
+                <button onClick={()=>
+                    //NEVER UPDATE STATE VARIABLES DIRECTLY
+                    this.setState({
+                        count:this.state.count +1
+                    })
+                }
+                >
+                    Count increase
+                </button>
+                <h2>Name: Adhil</h2>
+                <h3>Location: Kerala</h3>
+                <h4>Contact: @adirkm</h4>
+            </div>
+        )
+    }
+}
+
+export default UserClass;
+
+this.setState() inside pass a object and update it  thsi object contain updated value of state variable
+how we can update like this  count:this.state.count +1 
+now see increasing value
+
+here object updating then onject variable only updating
+
+REACT WHAT IS LYFECYCLE METHOD?  ❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗
+
+NOW WE GOING LEARN LYFE CYCLE METHOD IN REACT CLASS COMPONENT
+
+MOUNTING ?
+How this react class base  component how will when write this code how this componet is putup the web page how the component is loaded or we using MOUNTING ❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗
+
+WHAT IS  LYFECYCLE WHAT ARE THE LYFECYCLE
+
+NOW WE LEARNED HOW PROPS HOW UPDATING ALL
+
+NOW WE GONA CYCLE OF WEBPAGE HOW IT MOUNTE TO THE WEB PAGE APPLICATION 
+
+YOU CAN SAY LOADING OR MOUNTING BOTH ARE SAME 
+WHEN SAY LOADING ITS MOUNTING THE COMPONENT ON THE WEB PAGE
+
+WHAT IS MOUNTING 
+
+ supoose Aboutus component is a  parrent component and UserClass  inside the Aboutus component 
+ so when you load the Aboutus component to the web page or may be you render it 
+
+ when ith line run line by line there is a class component there so its starts loading the class base component loading it goes to the UserClass component 
+ and new instance of class is created  and what happens when the class is called when the calss instatiated so what happens is the constructor is called
+ the first thing the class goes the constructor is called once the constructor is called render this called 
+ first constructor then render 
+
+ componentDidMount(){
+
+ }
+    componentDidMount is react give to use
+
+ when this class component loaded first of all constructor will call then the render methos will call and once the constructor  once the class base component mounted to the dom once isit their own the dom 
+ then the componentDidMount call
+
+ when the UserClass component loading first of all constructor will call the the render is call then the componentDidMount is called 
+ THIS IS THE MOUNTING CYCLE THIS IS THE LYFECYCLE REACT COMPONENT 
+    constructor -> render -> componentDidMount
+
+    componentDidMount mean the name like same componentDidMount when the component alredy mounted on to the web page  
+
+    you can put consles every method then u can see which first running all the running ways
+
+    if this componentDidMount parent also same parent will also constructor parent will have also render method 
+
+WHAT IS THE USE CASE OF LYFE CYCLE METHOD
+
+componentDidMount mainly using calling api call 
+how it call it will did inside componentDidMount component  but no one know why api calling inside componentDidMount
+
+            <UserClass name = {"Adhil -(class)" location = {"mlp"}}/>
+            <UserClass name = {"Abin -(class)" location = {"ekm"}}/>
+
+what happen now 
+
+/*
+- Parent constructor
+- Parent Render 
+    - First Constructor 
+    - First Render
+
+    - Second Constructor 
+    - Second Render
+    - Second componentDidMount
+
+- Parent componentDidMount
+    
+*/
+

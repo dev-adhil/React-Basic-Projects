@@ -7,6 +7,8 @@ import About from "./components/About.js";
 import Contact from "./components/Contact.js";
 import Error from "./Error.js";
 import ResturentMenu from "./components/ResturentMenu.js";
+import UserClass from "./components/UserClass.js";
+import { User } from "./components/User.js";
 
 
 
@@ -30,14 +32,15 @@ const  appRouter = createBrowserRouter([
     element:<Body/>
   },{
     path:"/about",
-    element:<About/>
+    element:<UserClass/>
   },{
     path:"/contact",
-    element:<Contact/>
+    element:<User/>
   },{
     path:"/restaurent/:resId",
     element:<ResturentMenu/>
   },
+  
     ],
     errorElement:<Error/>
   }
